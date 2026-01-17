@@ -10,7 +10,7 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：``lua
+<meta name="description" content="国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：```lua
 function Register()
     return '4C 8B DC 55 53 41 56 49 8D AB 28 FE FF FF 48 81 EC C0 02 00 00 48 8B'
 end
@@ -18,9 +18,9 @@ end
 function OnMatchFound(MatchAddress)
     return MatchAddress
 end
-``手动添加aob。">
+```手动添加aob。">
 <meta property="og:title" content="KardsDumpLog1">
-<meta property="og:description" content="国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：``lua
+<meta property="og:description" content="国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：```lua
 function Register()
     return '4C 8B DC 55 53 41 56 49 8D AB 28 FE FF FF 48 81 EC C0 02 00 00 48 8B'
 end
@@ -28,7 +28,7 @@ end
 function OnMatchFound(MatchAddress)
     return MatchAddress
 end
-``手动添加aob。">
+```手动添加aob。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://vekolyram.github.io/post/KardsDumpLog1.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
@@ -89,14 +89,14 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><p>国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：``lua<br>
+<div class="markdown-body" id="postBody"><p>国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：```lua<br>
 function Register()<br>
 return "4C 8B DC 55 53 41 56 49 8D AB 28 FE FF FF 48 81 EC C0 02 00 00 48 8B"<br>
 end</p>
 <p>function OnMatchFound(MatchAddress)<br>
 return MatchAddress<br>
-end<br>
-``手动添加aob</p></div>
+end</p>
+<pre lang="手动添加aob" class="notranslate"><code class="notranslate"></code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

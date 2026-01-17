@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://vekolyram.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://vekolyram.github.io</link></image><lastBuildDate>Sat, 17 Jan 2026 05:11:21 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster><item><title>KardsDumpLog1</title><link>https://vekolyram.github.io/post/KardsDumpLog1.html</link><description>国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：``lua
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://vekolyram.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://vekolyram.github.io</link></image><lastBuildDate>Sat, 17 Jan 2026 05:34:14 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster><item><title>KardsDumpLog1</title><link>https://vekolyram.github.io/post/KardsDumpLog1.html</link><description>国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：```lua
 function Register()
     return '4C 8B DC 55 53 41 56 49 8D AB 28 FE FF FF 48 81 EC C0 02 00 00 48 8B'
 end
@@ -7,4 +7,4 @@ end
 function OnMatchFound(MatchAddress)
     return MatchAddress
 end
-``手动添加aob。</description><guid isPermaLink="true">https://vekolyram.github.io/post/KardsDumpLog1.html</guid><pubDate>Sat, 17 Jan 2026 05:07:15 +0000</pubDate></item></channel></rss>
+```手动添加aob。</description><guid isPermaLink="true">https://vekolyram.github.io/post/KardsDumpLog1.html</guid><pubDate>Sat, 17 Jan 2026 05:07:15 +0000</pubDate></item></channel></rss>
