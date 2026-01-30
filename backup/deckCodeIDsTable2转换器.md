@@ -1,0 +1,2 @@
+在/Game/Structs/下有个deckCodeIDsTable2，这正是我们开服需要的deckCodeIDsTable2，所以写个转换器将其转换为python，也是第一次接触到DataTableExport，代码如下
+<img width="820" height="563" alt="Image" src="https://github.com/user-attachments/assets/290b000c-6906-4af4-976e-075a3252eba1" />
