@@ -10,34 +10,68 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：
-```lua
-function Register()
-    return '4C 8B DC 55 53 41 56 49 8D AB 28 FE FF FF 48 81 EC C0 02 00 00 48 8B'
-end
+<meta name="description" content="**获取蓝图**
+创建mod不多赘述了，来到hook阶段，有个小技巧，就是使用快捷键进行hook，
 
-function OnMatchFound(MatchAddress)
-    return MatchAddress
-end
-```
-手动添加aob。">
-<meta property="og:title" content="KardsDumpLog1">
-<meta property="og:description" content="国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：
-```lua
-function Register()
-    return '4C 8B DC 55 53 41 56 49 8D AB 28 FE FF FF 48 81 EC C0 02 00 00 48 8B'
-end
+<img width='987' height='220' alt='Image' src='https://github.com/user-attachments/assets/d5db028c-ccc3-4965-ab76-177d8b5c2a41' />
 
-function OnMatchFound(MatchAddress)
-    return MatchAddress
-end
+就像这样，我们就获得了cardfunction的uobject，测验后发现staticfindobject暂时不能获得这个bpcfs的对象，所以只能先这么用了
+**调用函数**
+ue4ss lua mod 函数调用与传参返回比较难，整理了一下大概这样
+1. 函数调用
+我们对一个object使用冒号+函数（bpcfs:GiveKreditsBySide）就是调用这个object的一个函数，并将self作为第一个参数传进去（这个很重要），并且调用函数
+2. 参数传递
+在上面那个使用冒号的句子中，向括号里写的东西就是参数，枚举值可以用int代替
+3. 蓝图返回
+观察UHT，发现函数是蓝图重写+有参数是是引用，那么这个参数实际上是一个蓝图中的返回值，在ue4ssluamod中，我们需要使用一个table来接收这个返回值，所以最终的调用就像这样子
+`T:DrawCardsFromDeckBySide(0,1,5,false,false,{},0.2)`
+**另：**
+1. 如果你使用hook中存储uobject然后再其他地方,反馈不是实时的，比如DrawCardsFromDeckBySide会在指挥点变化后显示，抽牌函数会没效果
+2. 一个基本的hook像这样
 ```
-手动添加aob。">
+RegisterHook('/Game/Blueprints/Cards/BP_CardFunctions.BP_CardFunctions_C:DrawCardsFromDeckBySide', function (self,instigatorID, side, NumCards, cardSeen, OpponentDraw, cardsIDs, drawDelay)
+ s= self:get()
+ side2= side:get()
+ s:GiveKreditsBySide(side:get(),24,0,{})
+end)
+```
+不难看出hook时传入的callback function第一个参数为self，第二个开始才是参数，与上文呼应（bushi），且每个参数都需要使用Param:get()进行解包获得真正的值
+
+一些图放评论区了。">
+<meta property="og:title" content="Ue4ss Lua Mod in Kards">
+<meta property="og:description" content="**获取蓝图**
+创建mod不多赘述了，来到hook阶段，有个小技巧，就是使用快捷键进行hook，
+
+<img width='987' height='220' alt='Image' src='https://github.com/user-attachments/assets/d5db028c-ccc3-4965-ab76-177d8b5c2a41' />
+
+就像这样，我们就获得了cardfunction的uobject，测验后发现staticfindobject暂时不能获得这个bpcfs的对象，所以只能先这么用了
+**调用函数**
+ue4ss lua mod 函数调用与传参返回比较难，整理了一下大概这样
+1. 函数调用
+我们对一个object使用冒号+函数（bpcfs:GiveKreditsBySide）就是调用这个object的一个函数，并将self作为第一个参数传进去（这个很重要），并且调用函数
+2. 参数传递
+在上面那个使用冒号的句子中，向括号里写的东西就是参数，枚举值可以用int代替
+3. 蓝图返回
+观察UHT，发现函数是蓝图重写+有参数是是引用，那么这个参数实际上是一个蓝图中的返回值，在ue4ssluamod中，我们需要使用一个table来接收这个返回值，所以最终的调用就像这样子
+`T:DrawCardsFromDeckBySide(0,1,5,false,false,{},0.2)`
+**另：**
+1. 如果你使用hook中存储uobject然后再其他地方,反馈不是实时的，比如DrawCardsFromDeckBySide会在指挥点变化后显示，抽牌函数会没效果
+2. 一个基本的hook像这样
+```
+RegisterHook('/Game/Blueprints/Cards/BP_CardFunctions.BP_CardFunctions_C:DrawCardsFromDeckBySide', function (self,instigatorID, side, NumCards, cardSeen, OpponentDraw, cardsIDs, drawDelay)
+ s= self:get()
+ side2= side:get()
+ s:GiveKreditsBySide(side:get(),24,0,{})
+end)
+```
+不难看出hook时传入的callback function第一个参数为self，第二个开始才是参数，与上文呼应（bushi），且每个参数都需要使用Param:get()进行解包获得真正的值
+
+一些图放评论区了。">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://vekolyram.github.io/post/KardsDumpLog1.html">
+<meta property="og:url" content="https://vekolyram.github.io/post/Ue4ss%20Lua%20Mod%20in%20Kards.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/176578753?v=4&size=64">
-<title>KardsDumpLog1</title>
-<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+<title>Ue4ss Lua Mod in Kards</title>
+
 
 
 </head>
@@ -79,7 +113,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 
 <body>
     <div id="header">
-<h1 class="postTitle">KardsDumpLog1</h1>
+<h1 class="postTitle">Ue4ss Lua Mod in Kards</h1>
 <div class="title-right">
     <a href="https://vekolyram.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
         <svg class="octicon" width="16" height="16">
@@ -87,7 +121,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         </svg>
     </a>
     
-    <a href="https://github.com/vekolyram/vekolyram.github.io/issues/2" target="_blank" class="btn btn-invisible circle" title="Issue">
+    <a href="https://github.com/vekolyram/vekolyram.github.io/issues/6" target="_blank" class="btn btn-invisible circle" title="Issue">
         <svg class="octicon" width="16" height="16">
             <path id="pathIssue" fill-rule="evenodd"></path>
         </svg>
@@ -103,15 +137,32 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><p>国土版本的kards使用ue5.6开发，ue4ss直接dump是会error的，解决方法就是在ue4ss/UE4SS_Signatures下新建一个StaticConstructObject.lua文件，内容如下：</p>
-<div class="highlight highlight-source-lua"><pre class="notranslate"><span class="pl-k">function</span> <span class="pl-en">Register</span>()
-    <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>4C 8B DC 55 53 41 56 49 8D AB 28 FE FF FF 48 81 EC C0 02 00 00 48 8B<span class="pl-pds">"</span></span>
-<span class="pl-k">end</span>
-
-<span class="pl-k">function</span> <span class="pl-en">OnMatchFound</span>(<span class="pl-smi">MatchAddress</span>)
-    <span class="pl-k">return</span> <span class="pl-smi">MatchAddress</span>
-<span class="pl-k">end</span></pre></div>
-<p>手动添加aob</p></div>
+<div class="markdown-body" id="postBody"><p><strong>获取蓝图</strong><br>
+创建mod不多赘述了，来到hook阶段，有个小技巧，就是使用快捷键进行hook，</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/d5db028c-ccc3-4965-ab76-177d8b5c2a41"><img width="987" height="220" alt="Image" src="https://github.com/user-attachments/assets/d5db028c-ccc3-4965-ab76-177d8b5c2a41" style="max-width: 100%; height: auto; max-height: 220px;"></a></p>
+<p>就像这样，我们就获得了cardfunction的uobject，测验后发现staticfindobject暂时不能获得这个bpcfs的对象，所以只能先这么用了<br>
+<strong>调用函数</strong><br>
+ue4ss lua mod 函数调用与传参返回比较难，整理了一下大概这样</p>
+<ol>
+<li>函数调用<br>
+我们对一个object使用冒号+函数（bpcfs:GiveKreditsBySide）就是调用这个object的一个函数，并将self作为第一个参数传进去（这个很重要），并且调用函数</li>
+<li>参数传递<br>
+在上面那个使用冒号的句子中，向括号里写的东西就是参数，枚举值可以用int代替</li>
+<li>蓝图返回<br>
+观察UHT，发现函数是蓝图重写+有参数是是引用，那么这个参数实际上是一个蓝图中的返回值，在ue4ssluamod中，我们需要使用一个table来接收这个返回值，所以最终的调用就像这样子<br>
+<code class="notranslate">T:DrawCardsFromDeckBySide(0,1,5,false,false,{},0.2)</code><br>
+<strong>另：</strong></li>
+<li>如果你使用hook中存储uobject然后再其他地方,反馈不是实时的，比如DrawCardsFromDeckBySide会在指挥点变化后显示，抽牌函数会没效果</li>
+<li>一个基本的hook像这样</li>
+</ol>
+<pre class="notranslate"><code class="notranslate">RegisterHook("/Game/Blueprints/Cards/BP_CardFunctions.BP_CardFunctions_C:DrawCardsFromDeckBySide", function (self,instigatorID, side, NumCards, cardSeen, OpponentDraw, cardsIDs, drawDelay)
+ s= self:get()
+ side2= side:get()
+ s:GiveKreditsBySide(side:get(),24,0,{})
+end)
+</code></pre>
+<p>不难看出hook时传入的callback function第一个参数为self，第二个开始才是参数，与上文呼应（bushi），且每个参数都需要使用Param:get()进行解包获得真正的值</p>
+<p>一些图放评论区了</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
@@ -170,7 +221,11 @@ console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
-
+cmButton=document.getElementById("cmButton");
+    span=document.createElement("span");
+    span.setAttribute("class","Counter");
+    span.innerHTML="1";
+    cmButton.appendChild(span);
 
 
 function openComments(){
