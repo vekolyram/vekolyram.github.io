@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://vekolyram.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://vekolyram.github.io</link></image><lastBuildDate>Fri, 30 Jan 2026 16:55:37 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster><item><title>聊天记录2026/1/31/00:32:44</title><link>https://vekolyram.github.io/post/liao-tian-ji-lu-2026-1-31-00-32-44.html</link><description>凉‏仙贝 00:32:44
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://vekolyram.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://vekolyram.github.io</link></image><lastBuildDate>Sat, 31 Jan 2026 08:53:09 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster><item><title>UE4SS Lua Mod in Kard</title><link>https://vekolyram.github.io/post/UE4SS%20Lua%20Mod%20in%20Kard.html</link><description>稍微整理了一下
+
+**一、获取蓝图对象**
+在Mod开发Hook阶段，可以借助快捷键操作来便捷地完成hook：
+&lt;img width='987' height='220' alt='Image' src='https://github.com/user-attachments/assets/d5db028c-ccc3-4965-ab76-177d8b5c2a41' /&gt;
+如上图所示，借助快捷键可直接拿到 `cardfunction` 的UObject。</description><guid isPermaLink="true">https://vekolyram.github.io/post/UE4SS%20Lua%20Mod%20in%20Kard.html</guid><pubDate>Sat, 31 Jan 2026 08:52:42 +0000</pubDate></item><item><title>聊天记录2026/1/31/00:32:44</title><link>https://vekolyram.github.io/post/liao-tian-ji-lu-2026-1-31-00-32-44.html</link><description>凉‏仙贝 00:32:44
 呵呵
 
 凉‏仙贝 00:32:49
