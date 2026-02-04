@@ -14,77 +14,71 @@
 7代表无auth，有key
 5代表无auth无key
 
-GET /config 5 请求服务器状态
-GET / 7 获取当前用户（现在为null），和端点表
-POST /session 7 获取用户信息+jwt+deckheader+playerid
-GET / 8 获取当前用户
-GET /items/{playerid} 8 获取所有物品和已穿戴的物品
-GET //entitlements/{playerid} 8 疑似获取佩戴信息
-GET //store/v2/ 8 获取商店
-GET /fp/ 8 获取活动信息
+**GET** /config 5 请求服务器状态
+**GET** / 7 获取当前用户（现在为null），和端点表
+**POST** /session 7 获取用户信息+jwt+deckheader+playerid
+**GET** / 8 获取当前用户
+**GET** /items/{playerid} 8 获取所有物品和已穿戴的物品
+**GET** //entitlements/{playerid} 8 疑似获取佩戴信息
+**GET** //store/v2/ 8 获取商店
+**GET** /fp/ 8 获取活动信息
 自此开始默认请求头含auth+2key 
-GET //players/{playerid}/friends?action=player-friends 获取朋友列表
-GET /store/txn 疑似获取商店
-GET /players/notifications/{playerid} 应该是定期访问，下文中所有的notifications/{playerid}用X1代替
-GET /store/txn/dlc 获取商店
-GET /players/283031/packs 获取卡包
-GET /players/283031/librarynew 获取仓库
-GET /matches/v2/reconnect 未知
-GET /playerstats/{playerid} 未知
-GET /campaign/{playerid} 获取比赛信息
-GET /players/{playerid}/achievements 获取成就
-GET /players/{playerid}/dailymissions 今日任务
+**GET** //players/{playerid}/friends?action=player-friends 获取朋友列表
+**GET** /store/txn 疑似获取商店
+**GET** /players/notifications/{playerid} 应该是定期访问，下文中所有的notifications/{playerid}用X1代替
+**GET** /store/txn/dlc 获取商店
+**GET** /players/283031/packs 获取卡包
+**GET** /players/283031/librarynew 获取仓库
+**GET** /matches/v2/reconnect 未知
+**GET** /playerstats/{playerid} 未知
+**GET** /campaign/{playerid} 获取比赛信息
+**GET** /players/{playerid}/achievements 获取成就
+**GET** /players/{playerid}/dailymissions 今日任务
 自此开始挂机
-PUT /players/{playerid}/heartbeat 应该是定期访问，心跳，下文中用X2代替
-PUT X2
-GET X1
-GET X1
-GET X1
-PUT /players/{playerid}/decks/{deckid} 请求体分为action和deck_code，action有fill，deck_code为完整卡组码
+**PUT** /players/{playerid}/heartbeat 应该是定期访问，心跳，下文中用X2代替
+**PUT** X2
+**GET** X1
+**GET** X1
+**GET** X1
+**PUT** /players/{playerid}/decks/{deckid} 请求体分为action和deck_code，action有fill，deck_code为完整卡组码
 特殊记录：
-DELETE /players/{playerid}/decks/{deckid} 删除一个卡组
-说明：仅记录调用顺序，心跳或提醒信息无固定调用时机，供参考
-
-
-。">
+**DELETE** /players/{playerid}/decks/{deckid} 删除一个卡组
+**说明：仅记录调用顺序，心跳或提醒信息无固定调用时机，供参考**。">
 <meta property="og:title" content="kards server log1">
 <meta property="og:description" content="8代表请求头含auth+2×apikey
 7代表无auth，有key
 5代表无auth无key
 
-GET /config 5 请求服务器状态
-GET / 7 获取当前用户（现在为null），和端点表
-POST /session 7 获取用户信息+jwt+deckheader+playerid
-GET / 8 获取当前用户
-GET /items/{playerid} 8 获取所有物品和已穿戴的物品
-GET //entitlements/{playerid} 8 疑似获取佩戴信息
-GET //store/v2/ 8 获取商店
-GET /fp/ 8 获取活动信息
+**GET** /config 5 请求服务器状态
+**GET** / 7 获取当前用户（现在为null），和端点表
+**POST** /session 7 获取用户信息+jwt+deckheader+playerid
+**GET** / 8 获取当前用户
+**GET** /items/{playerid} 8 获取所有物品和已穿戴的物品
+**GET** //entitlements/{playerid} 8 疑似获取佩戴信息
+**GET** //store/v2/ 8 获取商店
+**GET** /fp/ 8 获取活动信息
 自此开始默认请求头含auth+2key 
-GET //players/{playerid}/friends?action=player-friends 获取朋友列表
-GET /store/txn 疑似获取商店
-GET /players/notifications/{playerid} 应该是定期访问，下文中所有的notifications/{playerid}用X1代替
-GET /store/txn/dlc 获取商店
-GET /players/283031/packs 获取卡包
-GET /players/283031/librarynew 获取仓库
-GET /matches/v2/reconnect 未知
-GET /playerstats/{playerid} 未知
-GET /campaign/{playerid} 获取比赛信息
-GET /players/{playerid}/achievements 获取成就
-GET /players/{playerid}/dailymissions 今日任务
+**GET** //players/{playerid}/friends?action=player-friends 获取朋友列表
+**GET** /store/txn 疑似获取商店
+**GET** /players/notifications/{playerid} 应该是定期访问，下文中所有的notifications/{playerid}用X1代替
+**GET** /store/txn/dlc 获取商店
+**GET** /players/283031/packs 获取卡包
+**GET** /players/283031/librarynew 获取仓库
+**GET** /matches/v2/reconnect 未知
+**GET** /playerstats/{playerid} 未知
+**GET** /campaign/{playerid} 获取比赛信息
+**GET** /players/{playerid}/achievements 获取成就
+**GET** /players/{playerid}/dailymissions 今日任务
 自此开始挂机
-PUT /players/{playerid}/heartbeat 应该是定期访问，心跳，下文中用X2代替
-PUT X2
-GET X1
-GET X1
-GET X1
-PUT /players/{playerid}/decks/{deckid} 请求体分为action和deck_code，action有fill，deck_code为完整卡组码
+**PUT** /players/{playerid}/heartbeat 应该是定期访问，心跳，下文中用X2代替
+**PUT** X2
+**GET** X1
+**GET** X1
+**GET** X1
+**PUT** /players/{playerid}/decks/{deckid} 请求体分为action和deck_code，action有fill，deck_code为完整卡组码
 特殊记录：
-DELETE /players/{playerid}/decks/{deckid} 删除一个卡组
-说明：仅记录调用顺序，心跳或提醒信息无固定调用时机，供参考
-
-
-。">
+**DELETE** /players/{playerid}/decks/{deckid} 删除一个卡组
+**说明：仅记录调用顺序，心跳或提醒信息无固定调用时机，供参考**。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://vekolyram.github.io/post/kards%20server%20log1.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/176578753?v=4&size=64">
@@ -148,36 +142,36 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <div class="markdown-body" id="postBody"><p>8代表请求头含auth+2×apikey<br>
 7代表无auth，有key<br>
 5代表无auth无key</p>
-<p>GET /config 5 请求服务器状态<br>
-GET / 7 获取当前用户（现在为null），和端点表<br>
-POST /session 7 获取用户信息+jwt+deckheader+playerid<br>
-GET / 8 获取当前用户<br>
-GET /items/{playerid} 8 获取所有物品和已穿戴的物品<br>
-GET //entitlements/{playerid} 8 疑似获取佩戴信息<br>
-GET //store/v2/ 8 获取商店<br>
-GET /fp/ 8 获取活动信息<br>
+<p><strong>GET</strong> /config 5 请求服务器状态<br>
+<strong>GET</strong> / 7 获取当前用户（现在为null），和端点表<br>
+<strong>POST</strong> /session 7 获取用户信息+jwt+deckheader+playerid<br>
+<strong>GET</strong> / 8 获取当前用户<br>
+<strong>GET</strong> /items/{playerid} 8 获取所有物品和已穿戴的物品<br>
+<strong>GET</strong> //entitlements/{playerid} 8 疑似获取佩戴信息<br>
+<strong>GET</strong> //store/v2/ 8 获取商店<br>
+<strong>GET</strong> /fp/ 8 获取活动信息<br>
 自此开始默认请求头含auth+2key<br>
-GET //players/{playerid}/friends?action=player-friends 获取朋友列表<br>
-GET /store/txn 疑似获取商店<br>
-GET /players/notifications/{playerid} 应该是定期访问，下文中所有的notifications/{playerid}用X1代替<br>
-GET /store/txn/dlc 获取商店<br>
-GET /players/283031/packs 获取卡包<br>
-GET /players/283031/librarynew 获取仓库<br>
-GET /matches/v2/reconnect 未知<br>
-GET /playerstats/{playerid} 未知<br>
-GET /campaign/{playerid} 获取比赛信息<br>
-GET /players/{playerid}/achievements 获取成就<br>
-GET /players/{playerid}/dailymissions 今日任务<br>
+<strong>GET</strong> //players/{playerid}/friends?action=player-friends 获取朋友列表<br>
+<strong>GET</strong> /store/txn 疑似获取商店<br>
+<strong>GET</strong> /players/notifications/{playerid} 应该是定期访问，下文中所有的notifications/{playerid}用X1代替<br>
+<strong>GET</strong> /store/txn/dlc 获取商店<br>
+<strong>GET</strong> /players/283031/packs 获取卡包<br>
+<strong>GET</strong> /players/283031/librarynew 获取仓库<br>
+<strong>GET</strong> /matches/v2/reconnect 未知<br>
+<strong>GET</strong> /playerstats/{playerid} 未知<br>
+<strong>GET</strong> /campaign/{playerid} 获取比赛信息<br>
+<strong>GET</strong> /players/{playerid}/achievements 获取成就<br>
+<strong>GET</strong> /players/{playerid}/dailymissions 今日任务<br>
 自此开始挂机<br>
-PUT /players/{playerid}/heartbeat 应该是定期访问，心跳，下文中用X2代替<br>
-PUT X2<br>
-GET X1<br>
-GET X1<br>
-GET X1<br>
-PUT /players/{playerid}/decks/{deckid} 请求体分为action和deck_code，action有fill，deck_code为完整卡组码<br>
+<strong>PUT</strong> /players/{playerid}/heartbeat 应该是定期访问，心跳，下文中用X2代替<br>
+<strong>PUT</strong> X2<br>
+<strong>GET</strong> X1<br>
+<strong>GET</strong> X1<br>
+<strong>GET</strong> X1<br>
+<strong>PUT</strong> /players/{playerid}/decks/{deckid} 请求体分为action和deck_code，action有fill，deck_code为完整卡组码<br>
 特殊记录：<br>
-DELETE /players/{playerid}/decks/{deckid} 删除一个卡组<br>
-说明：仅记录调用顺序，心跳或提醒信息无固定调用时机，供参考</p></div>
+<strong>DELETE</strong> /players/{playerid}/decks/{deckid} 删除一个卡组<br>
+<strong>说明：仅记录调用顺序，心跳或提醒信息无固定调用时机，供参考</strong></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
