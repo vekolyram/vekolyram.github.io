@@ -1,0 +1,21 @@
+/* 自定义 admonition 类型：important（GitHub IMPORTANT 紫色风格） */
+:root {
+  --md-admonition-icon--important: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>');
+}
+
+.md-typeset .admonition.important,
+.md-typeset details.important {
+  border-color: rgb(130, 80, 223);
+}
+
+.md-typeset .important > .admonition-title,
+.md-typeset .important > summary {
+  background-color: rgba(130, 80, 223, 0.1);
+}
+
+.md-typeset .important > .admonition-title::before,
+.md-typeset .important > summary::before {
+  background-color: rgb(130, 80, 223);
+  -webkit-mask-image: var(--md-admonition-icon--important);
+  mask-image: var(--md-admonition-icon--important);
+}

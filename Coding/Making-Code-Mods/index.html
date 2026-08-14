@@ -1,0 +1,2048 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Celeste（蔚蓝）Everest modding API 官方 wiki 的 Custom Maps 相关教程中文翻译">
+      
+      
+      
+      
+        <link rel="prev" href="../Code-Mod-Setup/">
+      
+      
+        <link rel="next" href="../Settings%2C-SaveData-and-Session/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>编写代码模组 - 蔚蓝 Everest 官方 Wiki · 中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#目录" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-header__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            蔚蓝 Everest 官方 Wiki · 中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              编写代码模组
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-nav__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    蔚蓝 Everest 官方 Wiki · 中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorials/First-Custom-Map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一张自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Guides/Custom-Maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    制图
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping-FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图 FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Map-Metadata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    地图元数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Entity-and-Trigger-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体与触发器文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Adding-Custom-Dialogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义对话
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overworld-Customisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大地图自定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摄像机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Useful-Mapping-Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实用制图工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Helper-Manuals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helper 手册
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Ahorn-Installation-Help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ahorn 安装帮助
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Custom-Tilesets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义图块集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Tileset-Format-Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图块集格式参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Adding-Stylegrounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    风格地面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Reskinning-Entities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体换肤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Decal-Registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贴花注册表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Custom-Portraits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义肖像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音频
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping/Adding-Custom-Audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义音频
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代码模组
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    代码模组
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Your-First-Code-Mod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一个代码模组
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Code-Mod-Setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代码模组搭建
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编写代码模组
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Settings%2C-SaveData-and-Session/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    设置、存档数据与会话
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Everest-Events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Everest 事件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Understanding-Input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    理解输入
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    日志
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cross-Mod-Functionality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    跨模组功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Recommended-Practices-and-Pitfalls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    推荐实践与常见误区
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mod-Updating-Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模组更新指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Entities%2C-Triggers-and-Stylegrounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义实体、触发器与风格地面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Creating-Custom-Events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    创建自定义事件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adding-Sprites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加精灵图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p><strong>在你能为代码模组添加功能之前，请务必先按照<a href="../Code-Mod-Setup/">代码模组设置指南</a>进行操作。</strong></p>
+</div>
+<h1 id="目录">目录<a class="headerlink" href="#目录" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="#阅读游戏代码">阅读游戏代码</a></li>
+<li><a href="#在特定事件发生时执行代码">在特定事件发生时执行代码</a></li>
+<li><a href="#修改游戏代码">修改游戏代码</a></li>
+<li><a href="#on-celeste-钩子"><code>On.Celeste</code> 钩子</a></li>
+<li><a href="#il-celeste-钩子-高级"><code>IL.Celeste</code> 钩子（高级）</a></li>
+<li><a href="#钩挂协程-高级">钩挂协程（高级）</a></li>
+<li><a href="#更改钩子顺序-高级">更改钩子顺序（高级）</a></li>
+<li><a href="#访问私有字段-属性-方法">访问私有字段/属性/方法</a></li>
+<li><a href="#向对象附加自定义数据">向对象附加自定义数据</a></li>
+</ul>
+<h1 id="阅读游戏代码">阅读游戏代码<a class="headerlink" href="#阅读游戏代码" title="Permanent link">&para;</a></h1>
+<p>借助<a href="https://en.wikipedia.org/wiki/Decompiler">反编译器 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>，阅读编译后程序的代码成为可能。</p>
+<p>Celeste 是用 C# 编写的，因此是一个 .NET 程序集。这意味着你需要一个 .NET 反编译器才能阅读 Celeste 的代码。</p>
+<p>下面是一组常用的 .NET 反编译器。<br />
+<em>下面列出的所有程序都能够导出游戏的反编译源码，你可以用任何编辑器打开并浏览这些源码。</em></p>
+<ul>
+<li><a href="https://github.com/icsharpcode/ILSpy"><strong>ILSpy</strong> <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> <em>（仅限 Windows）</em> 与 <a href="https://github.com/icsharpcode/AvaloniaILSpy"><strong>AvaloniaILSpy</strong> <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> <em>（跨平台）</em></li>
+<li>
+<p>有一个可用的插件，可以将 Visual Studio 使用的反编译引擎替换为 ILSpy 的引擎</p>
+</li>
+<li>
+<p><a href="https://github.com/dnSpyEx/dnSpy"><strong>dnSpy</strong> <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> <em>（仅限 Windows）</em></p>
+</li>
+<li>已停更的 dnSpy 项目的非官方延续</li>
+<li>
+<p>使用 ILSpy 反编译引擎，但并不总是完全保持最新</p>
+</li>
+<li>
+<p><a href="https://github.com/icsharpcode/ILSpy/tree/master/ICSharpCode.ILSpyCmd"><strong>ILSpyCMD</strong> <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> <em>（跨平台）</em></p>
+</li>
+<li>用于反编译程序集的命令行工具</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p>编译和反编译都是有损过程。<br />
+反编译器产出的代码几乎总是与原始源代码不同，即使它们执行的操作完全相同。</p>
+<p>其中一些最显著的差异包括：
+- 完全没有注释 <em>（xmldocs 除外）</em>
+- 编译器生成的类型和代码
+- 泛型局部变量名
+- 略有不同的代码布局</p>
+<p>由于编译器生成的类型，反编译出来的代码往往无法不经修改就直接编译回程序集。</p>
+</div>
+<p>Celeste 的代码位于游戏文件中的 <code>Celeste.dll</code> 程序集内。如果你需要查看原版代码，可以在 <code>orig/Celeste.exe</code> 中找到。<br />
+代码模组同样是用 C# 编写的 .NET 程序集。你可以像反编译 Celeste 一样反编译它们。</p>
+<div class="admonition warning">
+<p class="admonition-title">小心</p>
+<p><strong>在任何地方上传或再分发反编译后的 Celeste 代码都是完全非法的。</strong></p>
+</div>
+<h1 id="在特定事件发生时执行代码">在特定事件发生时执行代码<a class="headerlink" href="#在特定事件发生时执行代码" title="Permanent link">&para;</a></h1>
+<p>你可以使用 Everest 事件，在诸如新关卡开始等事件发生时执行某些操作。<br />
+<a href="../Everest-Events/"><strong>Everest 事件参考</strong></a></p>
+<p>例如，要在玩家生成时调用 <code>onPlayerSpawn</code> 方法，请使用如下代码：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Everest</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">OnSpawn</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">onPlayerSpawn</span><span class="p">;</span>
+</code></pre></div></p>
+<h1 id="修改游戏代码">修改游戏代码<a class="headerlink" href="#修改游戏代码" title="Permanent link">&para;</a></h1>
+<p>如果你想修改游戏的行为，可以用 <a href="https://github.com/icsharpcode/ILSpy/releases">ILSpy <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 或 <a href="https://github.com/0xd4d/dnSpy/releases">dnSpy <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 查看游戏代码。ILSpy 能给出更好的反编译代码，而 dnSpy 提供了调试器。</p>
+<p>一旦你找到了想要修改的方法，就可以使用 <code>On.Celeste</code> 或 <code>IL.Celeste</code> 来修改它。这两个命名空间分别允许你创建一种类型的钩子——On 钩子和 IL 钩子。（不过，你不应该在文件中导入这些命名空间，因为它们会与包含实际 Celeste 类型的 <code>Celeste</code> 主命名空间产生冲突。）钩子允许你更改甚至替换<em>现有</em> Celeste 代码的行为。</p>
+<p>注意：<code>On.Celeste</code> 和 <code>IL.Celeste</code> 来自 <code>MMHOOK_Celeste.dll</code>，这是由 <a href="https://github.com/MonoMod/MonoMod/tree/reorganize/src/MonoMod.RuntimeDetour.HookGen">MonoMod HookGen <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 在安装 Everest 时自动生成的。如果你使用的是 Everest Core（版本 &gt;= 1.4465），可以立即使用它；但如果你针对的是更早的版本，你需要将 Everest 安装到游戏的 OpenGL / FNA 版本上，以自动生成可用的 .dll，否则你需要 Windows 独占且已过时的 XNA Framework 才能编译你的模组。</p>
+<p>如果你想钩挂 <code>MMHOOK_Celeste.dll</code> 未提供的方法，可以手动构造一个钩子。参见 <a href="#il-钩子">IL.* 钩子</a> 了解 IL 钩子的构建过程，或参见 <a href="https://github.com/EverestAPI/ExampleMod/blob/master/Examples/Hooks.cs">ExampleMod <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 获取两种手动构造钩子的带注释示例。</p>
+<h2 id="on-celeste-钩子"><code>On.Celeste</code> 钩子<a class="headerlink" href="#on-celeste-钩子" title="Permanent link">&para;</a></h2>
+<p>这类钩子允许你用自定义方法"替换"原版中的某个方法。你可以通过钩子传入的 <code>orig</code> 参数，在需要时调用原方法。</p>
+<p>例如，<a href="https://github.com/maddie480/ExtendedVariantMode">Extended Variants <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 使用下面的代码让游戏认为攀墙跳始终不可能：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">WallJumpCheck</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">modPlayerWallJumpCheck</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">WallJumpCheck</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">modPlayerWallJumpCheck</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">modPlayerWallJumpCheck</span><span class="p">(</span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">orig_WallJumpCheck</span><span class="w"> </span><span class="n">orig</span><span class="p">,</span><span class="w"> </span><span class="n">Player</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Settings</span><span class="p">.</span><span class="n">DisableWallJumping</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="c1">// instead of running the vanilla method, return false all the time.</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="c1">// call the vanilla method by calling the &quot;orig&quot; method.</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">orig</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">dir</span><span class="p">);</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>当 <code>Settings.DisableWallJumping</code> 为 true 时，<code>Player.WallJumpCheck()</code> 的原版代码不会运行，该方法将始终返回 <code>false</code>。否则，该方法会表现得与原版一致。</p>
+<h3 id="钩子的静态性">钩子的静态性<a class="headerlink" href="#钩子的静态性" title="Permanent link">&para;</a></h3>
+<p>Celeste 模组社区普遍认为，即使 <a href="https://github.com/MonoMod/MonoMod">MonoMod <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 支持将 On 钩子声明为实例方法，也应将其声明为 static。这是因为钩子被视为对某个方法的"全局"修改，与包含该方法的类有多少个实例、以及是哪些实例无关。因此，从代码设计角度看，static 是最合理的。
+此外，这样做还能带来一点速度上的提升，因为钩挂方法的对象不需要被存储，也不需要在该钩挂方法每次被调用时重新取出。</p>
+<h2 id="il-celeste-钩子-高级"><code>IL.Celeste</code> 钩子（高级）<a class="headerlink" href="#il-celeste-钩子-高级" title="Permanent link">&para;</a></h2>
+<p>这类钩子允许修改方法的<em>内容</em>。当你想在一个大方法的特定位置注入或修改代码，又不想把整个方法复制粘贴到你的模组中时，这类钩子非常有用。</p>
+<p>当你为一个方法添加 IL 钩子时，钩子会立即收到一个 <code>ILContext</code> 对象并被调用。例如：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">IL</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">DashBegin</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">modDashLength</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">modDashLength</span><span class="p">(</span><span class="n">ILContext</span><span class="w"> </span><span class="n">il</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+<p>这个对象允许你直接、按你想要的方式修改该方法的 <em>IL 代码</em>。CIL 全称是 <a href="https://en.wikipedia.org/wiki/Common_Intermediate_Language">Common Intermediate Language <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>（公共中间语言），是一种较低级的语言。例如，这段代码：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SaveData</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Assists</span><span class="p">.</span><span class="n">SuperDashing</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">dashAttackTimer</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">0.15f</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
+</code></pre></div>
+会转换为：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>IL_009f: ldsfld class Celeste.SaveData Celeste.SaveData::Instance   &lt;= load SaveData.Instance
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>IL_00a4: ldflda valuetype Celeste.Assists Celeste.SaveData::Assists &lt;= load the Assists field in it
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>IL_00a9: ldfld bool Celeste.Assists::SuperDashing                   &lt;= load the SuperDashing field in it
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>IL_00ae: brfalse.s IL_00c2                              &lt;= if this is false, jump over the contents of the if
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>IL_00b0: ldarg.0                                        &lt;= load &quot;this&quot;
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>IL_00b1: ldarg.0                                        &lt;= load &quot;this&quot; again
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>IL_00b2: ldfld float32 Celeste.Player::dashAttackTimer  &lt;= load the dashAttackTimer in this
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>IL_00b7: ldc.r4 0.15                                    &lt;= load 0.15 to the stack
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>IL_00bc: add                                    &lt;= this adds the 2 latest loaded things, so dashAttackTimer + 0.15
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>IL_00bd: stfld float32 Celeste.Player::dashAttackTimer  &lt;= save the result to dashAttackTimer
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>IL_00c2: [...]
+</code></pre></div></p>
+<p><a href="https://en.wikipedia.org/wiki/List_of_CIL_instructions"><strong>所有现有指令的列表</strong> <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a><br />
+关于每个 OpCode 对应哪种 Operand 类型的参考，可以<a href="https://github.com/EverestAPI/Resources/files/4774310/MonoCecilOpCodes.txt">在此下载 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>，详见<a href="https://stackoverflow.com/a/7215711">这篇 stackoverflow 帖子 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>。</p>
+<p>在 ILSpy 和 dnSpy 中，你可以使用左上角的这个下拉框查看 IL 代码：
+<img alt="ILSpy 中用于在 IL 和 C# 之间切换的下拉框截图 :link:" src="https://user-images.githubusercontent.com/52103563/75152044-6b504900-5708-11ea-8f00-b42d02946a39.png" /></p>
+<p>在 dnSpy 中，你也可以右键点击一行代码来查看其对应的 IL。</p>
+<p>IL 钩子允许你添加、删除或修改这些 IL 指令。例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">modDashLength</span><span class="p">(</span><span class="n">ILContext</span><span class="w"> </span><span class="n">il</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">ILCursor</span><span class="w"> </span><span class="n">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ILCursor</span><span class="p">(</span><span class="n">il</span><span class="p">);</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="c1">// jump where 0.3 or 0.15f are loaded (those are dash times)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="p">.</span><span class="n">TryGotoNext</span><span class="p">(</span><span class="n">MoveType</span><span class="p">.</span><span class="n">After</span><span class="p">,</span><span class="w"> </span><span class="n">instr</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">instr</span><span class="p">.</span><span class="n">MatchLdcR4</span><span class="p">(</span><span class="mf">0.3f</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">instr</span><span class="p">.</span><span class="n">MatchLdcR4</span><span class="p">(</span><span class="mf">0.15f</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;ExtendedVariantMode/DashLength&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">$&quot;Applying dash length to constant at {cursor.Index} in CIL code for {cursor.Method.FullName}&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="n">cursor</span><span class="p">.</span><span class="n">EmitDelegate</span><span class="o">&lt;</span><span class="n">Func</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">determineDashLengthFactor</span><span class="p">);</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="n">cursor</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Mul</span><span class="p">);</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="nf">determineDashLengthFactor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Settings</span><span class="p">.</span><span class="n">DashLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">10f</span><span class="p">;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>这段代码会在代码中查找每一个 <code>ldc.r4 0.3</code> 或 <code>ldc.r4 0.15</code>（也就是说，每次用到 0.3f 和 0.15f 的地方），并将它们与 <code>determineDashLengthFactor()</code> 返回的值相乘。</p>
+<p>这是打补丁前 IL 代码的样子：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dashAttackTimer = 0.3f;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>=&gt;
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>ldarg.0
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>ldc.r4 0.3
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>stfld float32 Celeste.Player::dashAttackTimer
+</code></pre></div>
+下面是打补丁后代码的简化视图：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ldarg.0
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ldc.r4 0.3
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>call float32 determineDashLengthFactor()
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>mul                               &lt;= multiplies 0.3 and the result from determineDashLengthFactor()
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>stfld float32 Celeste.Player::dashAttackTimer
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>=&gt;
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>dashAttackTimer = 0.3f * determineDashLengthFactor();
+</code></pre></div>
+冲刺攻击计时器（决定冲刺时长）现在会被乘以一个从模组设置中取出的任意系数。</p>
+<p><a href="https://github.com/maddie480/ExtendedVariantMode/tree/master/Variants">Extended Variants <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 大量依赖 IL 钩子来略微改动游戏机制（例如重力和最大下落速度），因此它有很多这方面的示例。</p>
+<p><strong>请注意，至少在 Steam 上，IL 代码在 XNA 和 FNA 版本之间略有不同</strong>。强烈建议在两个版本上测试 IL 钩子。</p>
+<h2 id="钩挂协程-高级">钩挂协程（高级）<a class="headerlink" href="#钩挂协程-高级" title="Permanent link">&para;</a></h2>
+<p>协程是返回 <code>IEnumerator</code> 并且包含 <code>yield return xxx</code> 的方法。它们的名字通常以 "Routine" 结尾。</p>
+<ul>
+<li>当调用 <code>yield return [number]</code> 时，协程会暂停这么长的时间（以秒为单位）。</li>
+<li>当调用 <code>yield return null</code> 时，协程会暂停一帧。</li>
+<li>当调用 <code>yield return [IEnumerable instance]</code> 时，协程会开始执行传入的 <code>IEnumerable</code>，直到它结束，然后继续执行该语句之后的代码。</li>
+</ul>
+<p>钩挂它们的行为比较特殊：</p>
+<h3 id="on-钩子">On.* 钩子<a class="headerlink" href="#on-钩子" title="Permanent link">&para;</a></h3>
+<p>在钩挂协程时，必须将任何 <code>yield return orig()</code> 包裹在一个 <code>SwapImmediately</code> 对象中，如下所示：</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerator</span><span class="w"> </span><span class="nf">onFileSelectLeave</span><span class="p">(</span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">OuiFileSelect</span><span class="p">.</span><span class="n">orig_Leave</span><span class="w"> </span><span class="n">orig</span><span class="p">,</span><span class="w"> </span><span class="n">OuiFileSelect</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">Oui</span><span class="w"> </span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">SwapImmediately</span><span class="p">(</span><span class="n">orig</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">));</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;TestMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;I left file select!&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
+</code></pre></div>
+这是因为协程在切换 <code>IEnumerator</code> 时会有一帧的延迟。  </p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>为了能无问题地使用 <code>yield return new SwapImmediately(orig(self))</code>，你需要在 everest.yaml 中依赖 Everest 2781 或更高版本。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>这种单行写法并非在所有情况下都有效，尤其是当原版协程是一个会更改状态的"状态机"协程时（<code>StateMachine.State = xx</code>）。在这种情况下，你在协程结束后<strong>插入</strong>的任何代码都不会运行。要解决这个问题，你可以改用下面的写法：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">IEnumerator</span><span class="w"> </span><span class="n">origEnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orig</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">origEnum</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">origEnum</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span>
+</code></pre></div></p>
+<p>请注意，从 Everest 6064 开始就不再需要这样做了，因此为了享受该修复，请在 everest.yaml 中依赖 Everest 6064 或更高版本。</p>
+</div>
+<p>另外，如果你想处理 <code>orig()</code> 协程返回的每一个值，请确保在遍历它之前调用 <code>SafeEnumerate</code>：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerator</span><span class="w"> </span><span class="nf">onFileSelectLeave</span><span class="p">(</span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">OuiFileSelect</span><span class="p">.</span><span class="n">orig_Leave</span><span class="w"> </span><span class="n">orig</span><span class="p">,</span><span class="w"> </span><span class="n">OuiFileSelect</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">Oui</span><span class="w"> </span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">origEnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orig</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">).</span><span class="n">SafeEnumerate</span><span class="p">();</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">origEnum</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="c1">// do your processing here</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="cm">/* origEnum.Current or anything you&#39;d wish */</span><span class="p">;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="c1">// do anything after</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">}</span>
+</code></pre></div>
+这可以确保在 <code>origEnum</code> 返回 <code>SwapImmediately</code> 对象的情况下，你仍然能遍历所有值。请注意，即使你钩挂的原版方法没有这样做，<code>orig</code> 指向的是下一个要调用的钩子，或者实际的原版方法，因此在前一种情况下它可能返回任何东西。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>为了能无问题地使用 <code>SafeEnumerate</code>，你需要在 everest.yaml 中依赖 Everest 6064 或更高版本。</p>
+</div>
+<h3 id="il-钩子">IL.* 钩子<a class="headerlink" href="#il-钩子" title="Permanent link">&para;</a></h3>
+<p>协程的实际代码并不在该方法本身中。例如，<code>Player.DashCoroutine()</code> 的 IL 代码是：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>IL_0000: ldc.i4.0
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>IL_0001: newobj instance void Celeste.Player/&#39;&lt;DashCoroutine&gt;d__423&#39;::.ctor(int32)
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>IL_0006: dup
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>IL_0007: ldarg.0
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>IL_0008: stfld class Celeste.Player Celeste.Player/&#39;&lt;DashCoroutine&gt;d__423&#39;::&#39;&lt;&gt;4__this&#39;
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>IL_000d: ret
+</code></pre></div></p>
+<p>⬆️ 这并不是该方法的实际代码，它只是实例化了一个 <code>Celeste.Player/'&lt;DashCoroutine&gt;d__423'</code> 对象并返回它。<code>IL.Celeste.Player.DashCoroutine += ...</code> 钩挂的正是这段代码，因此使用它会导致意想不到的结果。</p>
+<p>你在 ILSpy 的 C# 视图中看到的代码实际上位于 <code>Celeste.Player/'&lt;DashCoroutine&gt;d__423'::MoveNext()</code> 中，所以如果你想要 IL 钩挂它，这才是你该钩挂的方法。</p>
+<p>你可以通过手动构建 IL 钩子来实现：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">ILHook</span><span class="w"> </span><span class="n">dashCoroutineHook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ILHook</span><span class="p">(</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="k">typeof</span><span class="p">(</span><span class="n">Player</span><span class="p">).</span><span class="n">GetMethod</span><span class="p">(</span><span class="s">&quot;DashCoroutine&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">).</span><span class="n">GetStateMachineTarget</span><span class="p">(),</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">modDashSpeed</span><span class="p">);</span>
+</code></pre></div>
+<code>GetStateMachineTarget()</code> 的作用就是将 <code>Celeste.Player::DashCoroutine()</code> 转换为 <code>Celeste.Player/'&lt;DashCoroutine&gt;d__423'::MoveNext()</code>。</p>
+<p>要撤销这个 IL 钩子，你可以：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>dashCoroutineHook.Dispose();
+</code></pre></div></p>
+<p>请注意，手动构建 IL 钩子对于钩挂 orig_* 方法以及其他未通过 <code>IL.Celeste.*</code> 开放的方法也很有用。</p>
+<h2 id="更改钩子顺序-高级">更改钩子顺序（高级）<a class="headerlink" href="#更改钩子顺序-高级" title="Permanent link">&para;</a></h2>
+<p>默认情况下，钩子以类似栈的方式运行：最先应用的钩子将最后运行，而最后应用的钩子将在目标方法被调用时最先运行。</p>
+<p>MonoMod 提供了一种方式来声明你的钩子相对于其他钩子的顺序：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// Via the using pattern (to apply it to multiple hooks, or hooks via `On.`):</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DetourConfigContext</span><span class="p">(</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DetourConfig</span><span class="p">(</span><span class="s">&quot;ModID&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="p">.</span><span class="n">AddBefore</span><span class="p">(</span><span class="s">&quot;ModID1&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="p">.</span><span class="n">AddAfter</span><span class="p">(</span><span class="s">&quot;ModID2&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">        </span><span class="p">.</span><span class="n">WithPriority</span><span class="p">(</span><span class="mi">0</span><span class="p">)).</span><span class="n">Use</span><span class="p">()</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="c1">// This hook will be ran before hooks tagged with ModID1 and after the ones with ModID2</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">WallJumpCheck</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">modPlayerWallJumpCheck</span><span class="p">;</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="p">}</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1">// or directly into the hook instance</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="n">myHook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Hook</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Player</span><span class="p">).</span><span class="n">GetMethod</span><span class="p">(</span><span class="s">&quot;WallJumpCheck&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">modPlayerWallJumpCheck</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">                  </span><span class="k">new</span><span class="w"> </span><span class="nf">DetourConfig</span><span class="p">(</span><span class="s">&quot;ModID1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">priority</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;ModID1&quot;</span><span class="p">],</span><span class="w"> </span><span class="n">after</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;ModID2&quot;</span><span class="p">]));</span>
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p>当 <code>DetourConfig</code> 直接传递给 <code>Hook</code> 构造函数（第二种形式）时，它会优先于 <code>using</code> 模式。</p>
+</div>
+<p>你需要为你创建的每个 <code>DetourConfig</code> 提供一个 ID，它应该能代表该配置所应用的对象。一个好的模式是使用你的模组名称加上某个标识该钩子用途的后缀："MyMod_PlayerWallJumpCheck"。其他模组将在它们的 <code>DetourConfig</code> 中使用这个 ID。</p>
+<p>此外，还有一个类型为 <code>int?</code>（可空 <code>int</code>）的 priority（优先级）参数。当它不为 <code>null</code> 时，它会细化会被放置在同一位置的钩子的排序（值越大越靠前），它总是在 <code>before</code> 和 <code>after</code> 列表之后被检查。当传入 <code>null</code>（默认值）时，任何具有非空 priority 的钩子都会被放置在它之前。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>不带任何 <code>DetourConfig</code> 应用的钩子将在<em>所有</em>带 <code>DetourConfig</code> 的钩子之后运行，因此目前无法让你的钩子恰好紧挨着原方法调用之前被调用。一种变通方案是改为 ILHook 该方法，并在方法的最开头 <code>EmitDelegate</code> 你的钩子回调。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p>不过，让某个钩子先于其他所有钩子运行是可能的，只需将 <code>priority</code> 设置为 <code>int.MaxValue</code>。这并不能完全保证你的钩子会第一个运行（另一个模组可能也这样做，或者它可能在它的 <code>before</code> 列表中指定了你的 ID），但在大多数情况下它已经足够可靠。</p>
+</div>
+<p>另请参阅：
+- <a href="https://github.com/MonoMod/MonoMod/blob/reorganize/docs/RuntimeDetour/Usage.md">RuntimeDetour 用法文档 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>
+- <a href="https://github.com/MonoMod/MonoMod/blob/reorganize/src/MonoMod.RuntimeDetour/DetourConfig.cs"><code>DetourConfig</code> 源码 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>
+- <a href="https://github.com/MonoMod/MonoMod/blob/reorganize/src/MonoMod.RuntimeDetour/DetourContext.cs"><code>DetourConfigContext</code> 源码 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>
+- <a href="https://github.com/MonoMod/MonoMod/blob/reorganize/src/MonoMod.UnitTest/RuntimeDetour/DetourOrderTest.cs">MonoMod detour 顺序单元测试 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a></p>
+<h1 id="访问私有字段-属性-方法">访问私有字段/属性/方法<a class="headerlink" href="#访问私有字段-属性-方法" title="Permanent link">&para;</a></h1>
+<p>为了访问类中的私有字段/属性/方法，你可以使用 <a href="https://nuget.org/packages/CelesteMod.Publicizer">CelesteMod.Publicizer 包 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>。只需更新你的 <code>.csproj</code> 中对 <code>Celeste.dll</code> 的引用<strong>并重新构建项目</strong>即可。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>你的 IDE 可能会抱怨找不到 Celeste 类型。这通常可以通过重启 IDE / 使其缓存失效来解决。</p>
+</div>
+<p>然后，你就可以像访问公共成员一样访问一切了：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">Sprite</span><span class="w"> </span><span class="n">vanillaSprite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">someStrawberrySeedObject</span><span class="p">.</span><span class="n">sprite</span><span class="p">;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">someStrawberrySeedObject</span><span class="p">.</span><span class="n">sprite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modSprite</span><span class="p">;</span>
+</code></pre></div>
+<p>你可能会发现有些部分仍然不是公共的。那些属于 Everest，是被有意保留的，以避免模组依赖 Everest 内部行为。</p>
+<p>另外，你也可以使用 <a href="https://github.com/MonoMod/MonoMod/blob/master/MonoMod.Utils/DynamicData.cs">DynamicData <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>。为此，请创建或获取缓存的 DynamicData 对象，并将你想要访问其字段的对象传给它：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">DynamicData</span><span class="w"> </span><span class="n">strawberrySeedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DynamicData</span><span class="p">(</span><span class="n">someStrawberrySeedObject</span><span class="p">);</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1">// For performance, it is recommended to use DynamicData.For() to create the dynamicData once, and reuse it each time it is required.</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">DynamicData</span><span class="w"> </span><span class="n">strawberrySeedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DynamicData</span><span class="p">.</span><span class="n">For</span><span class="p">(</span><span class="n">someStrawberrySeedObject</span><span class="p">);</span>
+</code></pre></div>
+如果你只想访问静态字段/属性/方法：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">DynamicData</span><span class="w"> </span><span class="n">inputData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DynamicData</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Input</span><span class="p">));</span>
+</code></pre></div></p>
+<p>完成上述操作后，你就可以通过下面的方式访问和设置 <code>someStrawberrySeedObject</code> 上你想要的字段/属性：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">Sprite</span><span class="w"> </span><span class="n">vanillaSprite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strawberrySeedData</span><span class="p">.</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">Sprite</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;sprite&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// gets someStrawberrySeedObject.sprite</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">strawberrySeedData</span><span class="p">.</span><span class="n">Set</span><span class="p">(</span><span class="s">&quot;sprite&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">modSprite</span><span class="p">);</span><span class="w">    </span><span class="c1">// changes someStrawberrySeedObject.sprite</span>
+</code></pre></div>
+你还可以调用私有方法：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">strawberrySeedData</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="s">&quot;OnGainLeader&quot;</span><span class="p">);</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">strawberrySeedData</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="s">&quot;OnPlayer&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">player</span><span class="p">);</span>
+</code></pre></div></p>
+<div class="admonition warning">
+<p class="admonition-title">小心</p>
+<p>避免在热路径（例如每帧钩子）中反复使用 <code>DynamicData.For()</code> 创建 DynamicData，因为它会导致显著且难以察觉的性能影响，尤其是在大对象上执行时。</p>
+</div>
+<h1 id="向对象附加自定义数据">向对象附加自定义数据<a class="headerlink" href="#向对象附加自定义数据" title="Permanent link">&para;</a></h1>
+<p>虽然可以使用 DynamicData 向任何对象附加自定义数据，但出于性能原因并不推荐这样做。相反，推荐的做法是使用一个你附加到实体上的自定义组件，然后进行检查：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// The component:</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomDataComponent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Component</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">{</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Data</span><span class="p">;</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">CustomDataComponent</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">visible</span><span class="p">:</span><span class="w"> </span><span class="k">false</span><span class="p">,</span><span class="w"> </span><span class="n">active</span><span class="p">:</span><span class="w"> </span><span class="k">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">Data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="p">}</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="c1">// Adding the component to e.g. the player:</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">CustomDataComponent</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">    </span><span class="n">player</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CustomDataComponent</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="p">}</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="c1">// Reading the component:</span>
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">CustomDataComponent</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">CustomDataComponent</span><span class="w"> </span><span class="n">customData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customData</span><span class="p">.</span><span class="n">Data</span><span class="p">;</span>
+<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>请注意，<code>Entity.Get&lt;T&gt;()</code> 的性能与实体的组件数量呈线性关系。这通常是可以接受的，但作为替代，也可以使用 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.conditionalweaktable-2?view=net-10.0">ConditionalWeakTable <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 来获得以实体为键的近乎恒定的访问时间。不过，如果这样的表被设为 static，你需要注意与 SpeedrunTool 的兼容性，所以只有在迫不得已时才使用它。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Code-Mod-Setup/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 代码模组搭建">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                代码模组搭建
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Settings%2C-SaveData-and-Session/" class="md-footer__link md-footer__link--next" aria-label="下一页: 设置、存档数据与会话">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                设置、存档数据与会话
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
