@@ -1,0 +1,1542 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Celeste（蔚蓝）Everest modding API 官方 wiki 的 Custom Maps 相关教程中文翻译">
+      
+      
+      
+      
+        <link rel="prev" href="../Tileset-Format-Reference/">
+      
+      
+        <link rel="next" href="../Reskinning-Entities/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>风格地面 - 蔚蓝 Everest 官方 Wiki · 中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#什么是风格地面" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-header__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            蔚蓝 Everest 官方 Wiki · 中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              风格地面
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-nav__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    蔚蓝 Everest 官方 Wiki · 中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorials/First-Custom-Map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一张自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Guides/Custom-Maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    制图
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping-FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图 FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Map-Metadata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    地图元数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Entity-and-Trigger-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体与触发器文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adding-Custom-Dialogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义对话
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overworld-Customisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大地图自定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摄像机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Useful-Mapping-Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实用制图工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Helper-Manuals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helper 手册
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ahorn-Installation-Help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ahorn 安装帮助
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Tilesets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义图块集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tileset-Format-Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图块集格式参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    风格地面
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    风格地面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#目录" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reskinning-Entities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体换肤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Decal-Registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贴花注册表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Portraits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义肖像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音频
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adding-Custom-Audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义音频
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#目录" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="什么是风格地面">什么是风格地面？<a class="headerlink" href="#什么是风格地面" title="Permanent link">&para;</a></h1>
+<p><strong>风格地面（Stylegrounds）</strong>是你可以添加到地图中的背景与特效。
+本教程将讲解 Lönn 中风格地面菜单的_全部_内容，以及你如何为自己的模组添加背景。</p>
+<h2 id="目录">目录<a class="headerlink" href="#目录" title="Permanent link">&para;</a></h2>
+<details>
+<summary>点击展开目录</summary>
+
+*   [视差风格地面](#视差风格地面)
+    *   [贴图](#贴图-texture)
+    *   [仅限](#仅限-only)
+    *   [排除](#排除-exclude)
+    *   [标签](#标签-tag)
+    *   [旗帜与排除旗帜](#旗帜与排除旗帜-flag-与-not-flag)
+    *   [混合模式](#混合模式-blend-mode)
+    *   [颜色](#颜色-colour)
+    *   [透明度](#透明度-alpha)
+    *   [淡入复选框](#淡入复选框-fade-in-checkbox)
+    *   [移到背景/前景](#移到背景-前景-move-to-back-foreground)
+    *   [即时淡入与淡出复选框](#即时淡入与淡出复选框-instant-in-and-out)
+    *   [X 与 Y](#x-与-y)
+        *   [滚动 X 与 Y](#x-与-y)
+        *   [速度 X 与 Y](#x-与-y)
+        *   [循环 X 与 Y](#x-与-y)
+        *   [翻转 X 与 Y 复选框](#x-与-y)
+
+*   [特效](#特效)
+    *   [Blackhole](#blackhole)
+    *   [BossStarfield](#bossstarfield)
+    *   [CoreStarsFG](#corestarsfg)
+    *   [DreamStars](#dreamstars)
+    *   [Godrays](#godrays)
+    *   [MirrorFG](#mirrorfg)
+    *   [NorthernLights](#northernlights)
+    *   [Petals](#petals)
+    *   [Planets](#planets)
+    *   [Rain](#rain)
+    *   [ReflectionFG](#reflectionfg)
+    *   [SnowFG](#snowfg)
+    *   [SnowBG](#snowbg)
+    *   [Stardust](#stardust)
+    *   [Starfield](#starfield)
+    *   [Stars](#stars)
+    *   [Tentacles](#tentacles)
+    *   [Windsnow](#windsnow)
+
+</details>
+
+<h1 id="风格地面菜单">风格地面菜单<a class="headerlink" href="#风格地面菜单" title="Permanent link">&para;</a></h1>
+<p>风格地面菜单初始为空，必须使用_新建（New）<em>按钮添加风格地面后，风格地面窗口中的其余按钮才能生效。该按钮会添加其左侧下拉菜单中所选的风格地面类型。如果下拉菜单设置为_基于当前（Based on Current）</em>，则所选风格地面会被有效复制。</p>
+<p>风格地面中的大多数设置会在按下_新建（New）_时重置为默认值，因此应在添加风格地面之后再设置这些参数。要登记对风格地面的更改，请按下_更新（Update）_按钮。如果你不这样做，关闭风格地面窗口或选中其他风格地面时，更改将会丢失。</p>
+<p>可以使用_移除（Remove）_按钮删除风格地面；使用_上移（Move Up）_和_下移（Move Down）_可以改变风格地面之间的渲染层级。</p>
+<blockquote>
+<p>[!NOTE]
+风格地面在窗口中按从下到上的顺序渲染——因此如果你希望某个风格地面显示在另一个前面，就把它在菜单中移得_更靠下_。</p>
+</blockquote>
+<h2 id="如何添加自定义风格地面">如何添加自定义风格地面<a class="headerlink" href="#如何添加自定义风格地面" title="Permanent link">&para;</a></h2>
+<p>要添加自定义视差图片，你必须先有一个规范的模组结构，相关教程见<a href="https://github.com/EverestAPI/Resources/wiki/Mod-Structure">此处</a>。</p>
+<p>文件结构应如下所示：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Mods
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>↳ [你的模组]
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  ↳ Graphics
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↳ Atlases
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>      ↳ Gameplay
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        ↳ bgs
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>          ↳ [唯一文件夹名]
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            ↳ yourstyleground.png
+</code></pre></div>
+<p>完成上述操作后，你就可以将该文件路径（从 <code>bgs/...</code> 开始）<em>去掉 <code>.png</code> 扩展名</em>输入到视差风格地面的 <strong>Texture</strong> 参数中。</p>
+<h1 id="视差风格地面">视差风格地面<a class="headerlink" href="#视差风格地面" title="Permanent link">&para;</a></h1>
+<p>最常见的风格地面类型是<strong>视差（Parallax）</strong>，即单张图片并呈现纵深感的视觉效果。正因如此，我们将深入讲解这一类型，其余类型则分开说明。</p>
+<p><strong>视差（Parallax）</strong>风格地面的众多选项一开始可能令人不知所措，但大多数都很简单——只是数量较多而已。
+下图展示了它们的外观，随后按顺序逐一解释每个参数。
+<img alt="Lönn 视差风格地面菜单" src="https://github.com/EverestAPI/Resources/assets/98420477/ab8bcc91-70b1-4be7-9804-1fbbc87d25b3" /></p>
+<h3 id="贴图-texture">贴图（Texture）<a class="headerlink" href="#贴图-texture" title="Permanent link">&para;</a></h3>
+<p>在此输入视差应使用的图片路径，该路径相对于 <code>Graphics/Atlases/Gameplay</code> 图集。
+通常，你应该只使用原版游戏的背景贴图（如 <code>bgs/10/granny/bg</code>），或你自己模组中插入的贴图。避免复用现有模组中的背景，否则会产生不必要的依赖。
+还有四个可以自由使用、完全不在 <code>bgs/</code> 文件夹中的背景：<code>purplesunset</code>、<code>darkswamp</code>、<code>mist</code> 和 <code>northernlights</code>。</p>
+<p>截至撰写本文时，Lönn 尚无用于视差贴图选择的下拉菜单。相反，必须手动输入完整文件路径（从 <code>bgs/...</code> 开始）。
+不过在此期间，你可以从<a href="https://styleground-picker.modded-celeste.com/">此参考 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>中复制粘贴原版的风格地面路径。</p>
+<blockquote>
+<p>[!IMPORTANT]
+贴图路径<strong>绝不能</strong>包含 <code>.png</code> 扩展名。</p>
+<p>[!NOTE]
+由于风格地面路径以 <code>Graphics/Atlases/Gameplay</code> 文件夹为根目录，理论上可以将此参数设为 <code>bgs/</code> 文件夹以外的贴图，包括贴花、玩家精灵图或实体（entity）的帧。不过在大多数情况下，这并无实际用处。</p>
+</blockquote>
+<h3 id="仅限-only">仅限（Only）<a class="headerlink" href="#仅限-only" title="Permanent link">&para;</a></h3>
+<p>此参数与下一个参数用于选择你的背景将出现在哪些房间。应使用主 Lönn 窗口左侧显示的内部房间名；如果想设置多个房间，用逗号分隔但_不要_加空格（例如 <code>a1,b1,b2</code>）。* 可用作通配符，一次匹配多个房间（例如 <code>a-*</code> 会匹配所有以 <code>a-</code> 开头的房间）。</p>
+<h3 id="排除-exclude">排除（Exclude）<a class="headerlink" href="#排除-exclude" title="Permanent link">&para;</a></h3>
+<p>此参数的格式与仅限（Only）参数相同，但作用是强制排除房间而非包含房间。此参数中的任何内容都将优先于仅限（Only）参数中的设置。</p>
+<h3 id="标签-tag">标签（Tag）<a class="headerlink" href="#标签-tag" title="Permanent link">&para;</a></h3>
+<p>此参数常被那些对特定风格地面应用代码效果的代码模组使用。
+如果你在某个风格地面的标签（Tag）区域填入 <code>blackhole</code>，那么每当玩家触碰月亮故障背景触发器（Moon Glitch Background Trigger）时，该风格地面就会出现在背景中。</p>
+<h3 id="旗帜与排除旗帜-flag-与-not-flag">旗帜与排除旗帜（Flag 与 Not Flag）<a class="headerlink" href="#旗帜与排除旗帜-flag-与-not-flag" title="Permanent link">&para;</a></h3>
+<p>如果使用旗帜触发器（Flag Trigger），你可以让该背景通过触发器出现，而不是在其房间内一直可见。你可以在这里填入任意内容，但在你的地图内应保持唯一；如果地图中其他内容使用了相同的旗帜，可能会与此产生冲突。</p>
+<p>你可以使用旗帜触发器（Flag Trigger），配合你在排除旗帜（Not Flag）区域设置的旗帜，让背景消失。</p>
+<p><strong>如果不打算使用旗帜，请将这些区域留空。</strong></p>
+<blockquote>
+<p>[!TIP]
+为了让风格地面响应核心模式（core mode）的变化，Celeste 使用 <code>cold</code> 旗帜。</p>
+<p>如果你想让风格地面出现在_寒冷（Cold）_模式，请在旗帜（Flag）参数中填入 <code>cold</code>。
+如果你想让其出现在_炎热（Hot）_模式，则在排除旗帜（Not Flag）参数中填入 <code>cold</code>。</p>
+</blockquote>
+<h3 id="混合模式-blend-mode">混合模式（Blend Mode）<a class="headerlink" href="#混合模式-blend-mode" title="Permanent link">&para;</a></h3>
+<p>这决定了你的背景如何与其他特效和背景混合。<code>additive</code> 会将图片的颜色叠加到其下方的所有图片上，除非其后的图片是黑色的，否则会产生一种奇异的幽灵般的叠层效果。<code>alphablend</code> 则会尝试混合各图层的颜色，这是通常使用的选项。</p>
+<h3 id="颜色-colour">颜色（Colour）<a class="headerlink" href="#颜色-colour" title="Permanent link">&para;</a></h3>
+<p>在此以十六进制选择背景图片的着色颜色。通常你不会想把它改成 <code>FFFFFF</code> 以外的值，因为更低的数值会从图片中减去颜色。</p>
+<h3 id="透明度-alpha">透明度（Alpha）<a class="headerlink" href="#透明度-alpha" title="Permanent link">&para;</a></h3>
+<p>图片的透明程度：1 为不透明，0 为完全不可见。除非你希望背景图片半透明，否则请将其设为 1。</p>
+<h3 id="淡入复选框-fade-in-checkbox">淡入复选框（Fade In Checkbox）<a class="headerlink" href="#淡入复选框-fade-in-checkbox" title="Permanent link">&para;</a></h3>
+<p>若勾选，当你进入或离开其所在房间时，背景会从透明渐变到你设置的透明度（Alpha）值。</p>
+<h3 id="移到背景-前景-move-to-back-foreground">移到背景/前景（Move to Back/Foreground）<a class="headerlink" href="#移到背景-前景-move-to-back-foreground" title="Permanent link">&para;</a></h3>
+<p>_移到前景/背景_按钮控制风格地面所显示的图层。如果在前景，它会显示在游戏图层之前。如果在背景，它会显示在你的地图之后。因此，前景风格地面只应用于诸如薄雾之类不会遮挡游戏内容的覆盖层。在 Lönn 中，前景风格地面会在列表中的名称旁以对勾标记。</p>
+<p>在 Ahorn（已弃用）中，这一选择以复选框的形式呈现。</p>
+<h3 id="即时淡入与淡出复选框-instant-in-and-out">即时淡入与淡出复选框（Instant In and Out）<a class="headerlink" href="#即时淡入与淡出复选框-instant-in-and-out" title="Permanent link">&para;</a></h3>
+<p>若勾选即时淡入（Instant In），背景将在两个房间之间的切换过渡期间加载。
+若勾选即时淡出（Instant Out），背景将在两个房间之间的切换过渡期间消失。</p>
+<h3 id="x-与-y">X 与 Y<a class="headerlink" href="#x-与-y" title="Permanent link">&para;</a></h3>
+<p>这些参数决定背景图片的起始位置。X 为水平方向，Y 为垂直方向；正值将图片向右/下平移，负值将图片向左/上平移。</p>
+<p>要找出能在某个特定房间显示风格地面的坐标，请使用以下公式：</p>
+<p><code>(房间 Y 位置 + 房间高度 - 23) * 8 * 你期望的滚动 Y 值，用于 Y</code></p>
+<p><code>(房间 X 位置 + 房间宽度 - 40) * 8 * 你期望的滚动 X 值，用于 X</code></p>
+<h4 id="滚动-x-与-y-scroll-x-y">滚动 X 与 Y（Scroll X &amp; Y）<a class="headerlink" href="#滚动-x-与-y-scroll-x-y" title="Permanent link">&para;</a></h4>
+<p>这些参数定义背景图片相对于屏幕滚动的倍率。0 表示固定不动，1 表示与游戏图层同速滚动，因此你很可能希望介于两者之间。</p>
+<h4 id="速度-x-与-y-speed-x-y">速度 X 与 Y（Speed X &amp; Y）<a class="headerlink" href="#速度-x-与-y-speed-x-y" title="Permanent link">&para;</a></h4>
+<p>这些参数设置背景图片_自行_滚动的速度，单位为像素/秒。同样，正值表示图片向右/下滚动，负值表示向左/上滚动。</p>
+<h4 id="循环-x-与-y-loop-x-y">循环 X 与 Y（Loop X &amp; Y）<a class="headerlink" href="#循环-x-与-y-loop-x-y" title="Permanent link">&para;</a></h4>
+<p>若勾选循环 X（Loop X），背景将水平循环。例如，如果你的视差是一排树，勾选此项可确保树在滚动一小段距离后不会戛然而止。
+若勾选循环 Y（Loop Y），背景将垂直循环。</p>
+<h4 id="翻转-x-与-y-复选框-flip-x-y-checkboxes">翻转 X 与 Y 复选框（Flip X &amp; Y Checkboxes）<a class="headerlink" href="#翻转-x-与-y-复选框-flip-x-y-checkboxes" title="Permanent link">&para;</a></h4>
+<p>若勾选，这两个复选框将分别水平或垂直翻转背景图片。</p>
+<h1 id="特效">特效<a class="headerlink" href="#特效" title="Permanent link">&para;</a></h1>
+<p>其余类型的风格地面（通常统称为"特效"）要么参数很少，要么复用视差风格地面中的参数。以下是对每个特效的简短说明，以及其参数（如有）。许多辅助模组包含可自定义（或全新）的风格地面特效，但这里不会介绍它们。</p>
+<p><strong>名称（Name）</strong>、<strong>房间（Rooms）</strong>、<strong>排除（Exclude）</strong>、<strong>旗帜（Flag）</strong>、<strong>排除旗帜（Not Flag）</strong>、<strong>前景（Foreground）</strong>和<strong>标签（Tag）</strong>选项在所有特效上都存在，其行为与视差风格地面中同名参数完全相同。</p>
+<h2 id="特效参考">特效参考<a class="headerlink" href="#特效参考" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[!NOTE]
+某些特效会占据整个屏幕，实际上会使其身后的所有风格地面失效。</p>
+<p>虽然特效通常没有透明度选项，但它们仍然可以变得透明：由于游戏代码中的一处疏漏，如果一个特效直接位于<strong>混合模式（Blend Mode）</strong>设为<strong>叠加（Additive）</strong>的视差风格地面之前，该特效也会获得叠加混合。这在处理占据整个屏幕的特效时很有用。</p>
+</blockquote>
+<h3 id="blackhole">Blackhole<a class="headerlink" href="#blackhole" title="Permanent link">&para;</a></h3>
+<p>《再见（Farewell）》中的黑洞。
+<strong>黑洞强度触发器（Blackhole Strength Trigger）</strong>是与该特效配套的触发器，它会把地图中的所有黑洞变为颜色更粉、粒子更多的版本。这用于《再见》的和解（Reconciliation）检查点。
+此特效会随风移动并指示风向，但通常不建议让该特效成为唯一指示风向的风格地面。
+占据整个屏幕。</p>
+<h3 id="bossstarfield">BossStarfield<a class="headerlink" href="#bossstarfield" title="Permanent link">&para;</a></h3>
+<p>《反思（Reflection）》中 Badeline 首领战中的背景。
+若房间宽度小于或等于其高度，该特效的粒子会水平移动穿过屏幕；否则，粒子主要垂直移动。
+占据整个屏幕。</p>
+<h3 id="corestarsfg">CoreStarsFG<a class="headerlink" href="#corestarsfg" title="Permanent link">&para;</a></h3>
+<p>来自《核心（Core）》末尾卷屏段的白色粒子。</p>
+<h3 id="godrays">Godrays<a class="headerlink" href="#godrays" title="Permanent link">&para;</a></h3>
+<p>透明的红色菱形向下移动。
+用于《反思》。</p>
+<h3 id="heatwave">Heatwave<a class="headerlink" href="#heatwave" title="Permanent link">&para;</a></h3>
+<p>为《核心》中的_炎热（Hot）_和_寒冷（Cold）_两种模式提供动态粒子与薄雾特效。
+要使此特效显示，核心模式的元数据设置必须是_无（None）_以外的值。</p>
+<h3 id="mirrorfg">MirrorFG<a class="headerlink" href="#mirrorfg" title="Permanent link">&para;</a></h3>
+<p>用于《镜子神庙（Mirror Temple）》镜子区域的红色粒子特效。</p>
+<h3 id="northernlights">NorthernLights<a class="headerlink" href="#northernlights" title="Permanent link">&para;</a></h3>
+<p>《反思》开头看到的北极光。
+占据整个屏幕。</p>
+<h3 id="dreamstars">DreamStars<a class="headerlink" href="#dreamstars" title="Permanent link">&para;</a></h3>
+<p>空心的青色方块从屏幕底部升起。
+作为《再见》的一个废弃概念，此特效在原版游戏中并未使用。</p>
+<h3 id="petals">Petals<a class="headerlink" href="#petals" title="Permanent link">&para;</a></h3>
+<p>《反思》结尾看到的粉色花瓣。</p>
+<h3 id="planets">Planets<a class="headerlink" href="#planets" title="Permanent link">&para;</a></h3>
+<p>《再见》前几个检查点背景中的粉色与绿色海星。amount 字段的初始值对大多数房间来说过高，会导致海星重叠；对于大多数房间，请将其调低到个位数或以下。</p>
+<blockquote>
+<p>[!NOTE]
+size 字段只显示 <code>big</code> 或 <code>small</code> 两个选项；不过它可以用根目录 <code>bgs/10/</code> 下的任意一组编号风格地面来替换。
+这意味着你可以将 size 设为 <code>blackhole/particles</code> 之类的值，以获得黑洞特效中的长粉色粒子，或设为 <code>Planets/small</code>/<code>Planets/big</code> 以获得真正的行星（游戏内未使用）。</p>
+</blockquote>
+<h3 id="rain">Rain<a class="headerlink" href="#rain" title="Permanent link">&para;</a></h3>
+<p>《再见》开头的雨。</p>
+<h3 id="reflectionfg">ReflectionFG<a class="headerlink" href="#reflectionfg" title="Permanent link">&para;</a></h3>
+<p>与 <a href="#mirrorfg">MirrorFG</a> 完全相同，只是颜色为粉红色。</p>
+<h3 id="snowfg">SnowFG<a class="headerlink" href="#snowfg" title="Permanent link">&para;</a></h3>
+<p>白色与蓝色粒子飞过屏幕。
+用于《被遗忘之城（Forsaken City）》和《天空度假村（Celestial Resort）》，常与 <a href="#snowbg">SnowBG</a> 搭配使用。</p>
+<h3 id="snowbg">SnowBG<a class="headerlink" href="#snowbg" title="Permanent link">&para;</a></h3>
+<p>与上面相同，但使用更深的蓝色。</p>
+<h3 id="stardust">Stardust<a class="headerlink" href="#stardust" title="Permanent link">&para;</a></h3>
+<p>《再见》中的粉色与绿色粒子。
+此特效会随风向变化。在任何一个有风的房间，最佳做法是加入此特效或 <a href="#windsnow">Windsnow</a>。</p>
+<h3 id="starfield">Starfield<a class="headerlink" href="#starfield" title="Permanent link">&para;</a></h3>
+<p>《再见》第一部分使用的移动星带。</p>
+<h3 id="stars">Stars<a class="headerlink" href="#stars" title="Permanent link">&para;</a></h3>
+<p>《旧遗址（Old Site）》中的星空背景。
+如果地图元数据中的 <code>dreaming</code> 标签设为 true，星星会如《旧遗址》大部分区域那样向下坠落。否则，星星会静止不动，如同在"觉醒（Awake）"检查点中那样。
+占据整个屏幕。</p>
+<h3 id="tentacles">Tentacles<a class="headerlink" href="#tentacles" title="Permanent link">&para;</a></h3>
+<p>类似《反思》中的触手。
+将 side 字段设为 down 或 up 会导致游戏崩溃。这可能有助于模拟类似《反思》Badeline 首领战最后一屏的效果，那里的触手平滑移动。不过该特效并未在原版游戏中使用——而是使用了同名的实体。</p>
+<h3 id="windsnow">Windsnow<a class="headerlink" href="#windsnow" title="Permanent link">&para;</a></h3>
+<p>用于指示《黄金山脊（Golden Ridge）》中的风。在任何一个有风的房间，最佳做法是加入此特效或 <a href="#stardust">Stardust</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Tileset-Format-Reference/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 图块集格式参考">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                图块集格式参考
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Reskinning-Entities/" class="md-footer__link md-footer__link--next" aria-label="下一页: 实体换肤">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                实体换肤
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1352 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Celeste（蔚蓝）Everest modding API 官方 wiki 的 Custom Maps 相关教程中文翻译">
+      
+      
+      
+      
+        <link rel="prev" href="../Overworld-Customisation/">
+      
+      
+        <link rel="next" href="../Useful-Mapping-Tools/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>摄像机 - 蔚蓝 Everest 官方 Wiki · 中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#目录" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-header__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            蔚蓝 Everest 官方 Wiki · 中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              摄像机
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-nav__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    蔚蓝 Everest 官方 Wiki · 中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorials/First-Custom-Map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一张自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guides/Custom-Maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    制图
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping-FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图 FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Map-Metadata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    地图元数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Entity-and-Trigger-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体与触发器文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Adding-Custom-Dialogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义对话
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overworld-Customisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大地图自定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摄像机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Useful-Mapping-Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实用制图工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Helper-Manuals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helper 手册
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Ahorn-Installation-Help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ahorn 安装帮助
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Custom-Tilesets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义图块集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Tileset-Format-Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图块集格式参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Adding-Stylegrounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    风格地面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Reskinning-Entities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体换肤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Decal-Registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贴花注册表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Custom-Portraits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义肖像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音频
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Adding-Custom-Audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义音频
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="目录">目录<a class="headerlink" href="#目录" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#常用摄像机触发器">常用摄像机触发器</a></li>
+<li><a href="#摄像机偏移触发器">摄像机偏移触发器</a></li>
+<li><a href="#平滑摄像机偏移触发器">平滑摄像机偏移触发器</a></li>
+<li><a href="#摄像机追赶速度触发器">摄像机追赶速度触发器</a></li>
+<li><a href="#摄像机偏移边界触发器">摄像机偏移边界触发器</a></li>
+<li><a href="#摄像机-进阶-目标触发器">摄像机（进阶）目标触发器</a></li>
+<li><a href="#旗标摄像机触发器">旗标摄像机触发器</a></li>
+<li><a href="#缩放">缩放</a></li>
+<li><a href="#其他触发器">其他触发器</a></li>
+<li><a href="#摄像机交互">摄像机交互</a></li>
+</ul>
+<h1 id="简介">简介<a class="headerlink" href="#简介" title="Permanent link">&para;</a></h1>
+<p>一个常见的"经验法则"是：摄像机通常应该让玩家朝任意方向移动时都能看到屏幕的三分之二。你可以为每个房间设置偏移量，但也有一些实用的摄像机触发器。
+偏移量的等价关系是：X 偏移每 1 个单位等于 6 个图块，Y 偏移每 1 个单位等于 4 个图块。</p>
+<p><img src="https://github.com/EverestAPI/Resources/assets/109972200/3b109800-f984-4a5f-b162-1aa05e3cfd6b)" width="400" />  </p>
+<p><em>这些设置会将摄像机向右移动 6 个图块（因此玩家会更靠近左侧）并向上移动 4 个图块。</em></p>
+<h1 id="常用摄像机触发器">常用摄像机触发器<a class="headerlink" href="#常用摄像机触发器" title="Permanent link">&para;</a></h1>
+<h2 id="摄像机偏移触发器">摄像机偏移触发器<a class="headerlink" href="#摄像机偏移触发器" title="Permanent link">&para;</a></h2>
+<p>它会<strong>平移摄像机</strong>，垂直方向和水平方向都可以。它会覆盖这两个数值。如果你只想覆盖其中一个数值，可以改用平滑摄像机偏移触发器，并将位置模式设为 <code>NoEffect</code>。</p>
+<h2 id="平滑摄像机偏移触发器">平滑摄像机偏移触发器<a class="headerlink" href="#平滑摄像机偏移触发器" title="Permanent link">&para;</a></h2>
+<p><strong>逐渐平移摄像机</strong>到某个方向（从旧偏移量到新偏移量），这样在你进入触发器时就不会出现画面突变。</p>
+<h2 id="摄像机追赶速度触发器">摄像机追赶速度触发器<a class="headerlink" href="#摄像机追赶速度触发器" title="Permanent link">&para;</a></h2>
+<p>它对于<strong>高速区域</strong>很有用（例如双倍方块助推或连锁超级冲刺）。它位于 <strong>Maddie's Helping Hand</strong> 中。</p>
+<h2 id="摄像机偏移边界触发器">摄像机偏移边界触发器<a class="headerlink" href="#摄像机偏移边界触发器" title="Permanent link">&para;</a></h2>
+<p>阻止某个区域（从某个（某些）方向）被看到。请确保它们不在过渡中。它们还可以选择在玩家位于内部时不产生效果。</p>
+<h2 id="摄像机-进阶-目标触发器">摄像机（进阶）目标触发器<a class="headerlink" href="#摄像机-进阶-目标触发器" title="Permanent link">&para;</a></h2>
+<p>它会以或多或少的强度<strong>将摄像机锁定在一个节点上</strong>（值为 1 时摄像机将静止不动，&lt;1 时会跟随玩家，&gt;1 时会迅速变为静止），对于<strong>（半）封闭空间</strong>很有用，因为你始终处于触发器内部。</p>
+<h2 id="旗标摄像机触发器">旗标摄像机触发器<a class="headerlink" href="#旗标摄像机触发器" title="Permanent link">&para;</a></h2>
+<p>大多数触发器的旗标版本也存在于 <strong>Maddie's Helping Hand</strong> 中，对于<strong>回溯或复杂</strong>/非线性<strong>路线</strong>很有用。<strong>Viv Helper</strong> 中还有一个 Multiflag 摄像机目标触发器，可用于更复杂的情况。</p>
+<h2 id="缩放">缩放<a class="headerlink" href="#缩放" title="Permanent link">&para;</a></h2>
+<p>你也可以使用 <strong>Extended Variants</strong>、<strong>Frost Helper</strong>（Eased Camera Zoom Trigger）或 <strong>Extended Camera Dynamics</strong> 轻松<strong>放大</strong>摄像机。
+你可以使用 <strong>Extended Camera Dynamics</strong> 缩小（该辅助工具有一份<a href="https://github.com/Ikersfletch/ExCameraDynamics">指南 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>，其中解释了推荐的分辨率以及如何让缩小生效）。</p>
+<h2 id="其他触发器">其他触发器<a class="headerlink" href="#其他触发器" title="Permanent link">&para;</a></h2>
+<h3 id="更改-淡入淡出摄像机角度触发器">更改/淡入淡出摄像机角度触发器<a class="headerlink" href="#更改-淡入淡出摄像机角度触发器" title="Permanent link">&para;</a></h3>
+<p>允许更改摄像机的角度。建议只使用较小的数值，因为较大的数值会在屏幕周围产生黑色区域，并导致图块集无法正确渲染——因为它是围绕左上角而不是屏幕中心旋转的。位于 <strong>AvBday Helper</strong> 中。</p>
+<h3 id="动量摄像机偏移触发器">动量摄像机偏移触发器<a class="headerlink" href="#动量摄像机偏移触发器" title="Permanent link">&para;</a></h3>
+<p>TODO - 位于 <strong>Furry Helper</strong> 中。</p>
+<h3 id="摄像机目标角落触发器">摄像机目标角落触发器<a class="headerlink" href="#摄像机目标角落触发器" title="Permanent link">&para;</a></h3>
+<p>它是一个普通的摄像机目标触发器，只不过它拥有角落位置模式！这可以让你从摄像机目标触发器中向多个方向淡出，例如通过用它来覆盖 LeftToRight 和 BottomToTop 目标触发器之间的角落。这需要一个 BottomLeft 角落目标触发器。位于 <strong>Honly Helper</strong> 中。</p>
+<h3 id="摄像机目标交叉淡化触发器">摄像机目标交叉淡化触发器<a class="headerlink" href="#摄像机目标交叉淡化触发器" title="Permanent link">&para;</a></h3>
+<p>一种摄像机目标触发器，可用于在两个目标之间交叉淡化。适合从一个目标触发器切换到下一个，或通过串联多个来制作特殊电影镜头。位于 <strong>Honly Helper</strong> 中。</p>
+<h3 id="摄像机修正控制器">摄像机修正控制器<a class="headerlink" href="#摄像机修正控制器" title="Permanent link">&para;</a></h3>
+<p>这个控制器可以"修正"摄像机，让它们始终四舍五入到同一个数字，适用于一些罕见情况，例如摄像机目标可能指向某个特定像素，或者根据触发器进入方式指向左侧/右侧的一个像素。位于 <strong>Adam's Add-ons</strong> 中。</p>
+<h3 id="世界摄像机">世界摄像机<a class="headerlink" href="#世界摄像机" title="Permanent link">&para;</a></h3>
+<p>一个虚拟摄像机，在此实体的边界内渲染有节点的区域。循环风格地面会被无缝适配。可以通过旗标切换开关。部分实体（spinners、seeker barriers、water、lightning）和某些风格地面效果存在若干渲染 bug。位于 <strong>bits &amp; bolts</strong> 中。</p>
+<h3 id="速度自适应摄像机">速度自适应摄像机<a class="headerlink" href="#速度自适应摄像机" title="Permanent link">&para;</a></h3>
+<p>TODO - 位于 <strong>Chronia Helper</strong> 中。</p>
+<h3 id="摄像机约束触发器">摄像机约束触发器<a class="headerlink" href="#摄像机约束触发器" title="Permanent link">&para;</a></h3>
+<p>对摄像机可以移动到玩家前方或后方的距离设置严格边界。适用于玩家可能因此跑出屏幕的高速场景。位于 <strong>Prog Helper</strong> 中。</p>
+<h3 id="摄像机硬边界">摄像机硬边界<a class="headerlink" href="#摄像机硬边界" title="Permanent link">&para;</a></h3>
+<p>与 MaddieHelpingHand 的摄像机偏移边界类似，但它约束的是摄像机本身的位置，而不是摄像机目标。适用于高速场景——在接近目标时，普通摄像机偏移边界可能导致摄像机移动过慢。位于 <strong>Prog Helper</strong> 中。</p>
+<h3 id="单向摄像机触发器">单向摄像机触发器<a class="headerlink" href="#单向摄像机触发器" title="Permanent link">&para;</a></h3>
+<p>这些触发器有多个选项。它们可以选择<strong>阻止玩家移出摄像机视野</strong>（使用隐形屏障和击杀盒），并且可以在你处于内部时<strong>阻止摄像机</strong>朝某些方向移动。它还<strong>接受旗标</strong>来控制何时开始生效。位于 <strong>Maddie's Helping Hand</strong> 中。</p>
+<h3 id="卷片摄像机">卷片摄像机<a class="headerlink" href="#卷片摄像机" title="Permanent link">&para;</a></h3>
+<p>这个实体可以拥有任意数量的节点。它会按照指定的节点顺序移动摄像机，每次移动都有指定的延迟。它有一个在移动前等待的选项，还有一个在所有移动结束后设置 x 和 y 偏移量的选项。位于 <strong>Saladim Helper</strong> 中。</p>
+<p><img src="https://github.com/EverestAPI/Resources/assets/109972200/5a106442-3cff-455b-9b39-5c162d93cf9f" width="500" />  </p>
+<h3 id="冰沙摄像机目标触发器">冰沙摄像机目标触发器<a class="headerlink" href="#冰沙摄像机目标触发器" title="Permanent link">&para;</a></h3>
+<p>目标触发器，但它是二维的。在出生时或房间过渡后会发生故障。位于 <strong>Sardine7</strong> 中。</p>
+<h3 id="摄像机实体目标控制器">摄像机实体目标控制器<a class="headerlink" href="#摄像机实体目标控制器" title="Permanent link">&para;</a></h3>
+<p>这个摄像机跟随任意实体，而不是 Madeline。例如，在下面的图片中，它会在 theoFlag 旗标被激活后追踪 TheoCrystal，因此看起来就像你在扮演他一样。Lerp 只决定强度。位于 <strong>Game Helper</strong> 中。</p>
+<p><img src="https://github.com/user-attachments/assets/a9a73f61-a839-46f6-bb1f-5526e1e625a1" width="400" /></p>
+<h1 id="摄像机交互">摄像机交互<a class="headerlink" href="#摄像机交互" title="Permanent link">&para;</a></h1>
+<p>某些实体的存在会在特定条件下锁定摄像机，所以如果你遇到问题，请检查是否放置了这些实体。
+* Badeline Bosses 会在水平方向锁定摄像机，并且不允许你看到它们的右侧。因此，如果你从右侧进入一个有 Badeline Boss 的房间，摄像机将被锁定在左侧。DJ Map Helper 中有一个不锁定摄像机的特殊 Badeline Boss 版本。它们也会在垂直方向锁定摄像机，但这在原版中是可定制的。
+* Badeline Boosts 有一个摄像机锁定选项，使摄像机无法从实体上移开。
+* 来自 Communal Helper 的带路径的 Dream Boosters 也会将摄像机锁定在实体上。
+* Killboxes 会在垂直方向锁定摄像机，因此它们看起来像屏幕底部。如果你的出生点靠近 killbox，应该调整起始摄像机的 Y 偏移量，否则 killbox 在摄像机"适配"到其上方之前不会生效（例如直到你跳跃）。</p>
+<p>有少数罕见情况会让摄像机导致某些特定机制行为不同，或者导致某些实体在被视为"进入画面"之前不被渲染。例如，spinners 的碰撞盒在不可见时会卸载。一个著名的例子是 Ultra Difficult（来自 Spring Collab）的最后一间房间：</p>
+<p><img src="https://github.com/EverestAPI/Resources/assets/109972200/01657052-c6e4-4b85-a588-c4ee98ee8d06" width="400" />  </p>
+<p><em>Madeline 毫无伤害地穿过了这些 spinners，因为它们在前一帧没有处于摄像机画面内。</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Overworld-Customisation/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 大地图自定义">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                大地图自定义
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Useful-Mapping-Tools/" class="md-footer__link md-footer__link--next" aria-label="下一页: 实用制图工具">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                实用制图工具
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

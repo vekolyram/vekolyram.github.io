@@ -1,0 +1,1766 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Celeste（蔚蓝）Everest modding API 官方 wiki 的 Custom Maps 相关教程中文翻译">
+      
+      
+      
+      
+        <link rel="prev" href="../Entity-and-Trigger-Documentation/">
+      
+      
+        <link rel="next" href="../../Overworld-Customisation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>添加自定义对话 - 蔚蓝 Everest 官方 Wiki · 中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#目录" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-header__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            蔚蓝 Everest 官方 Wiki · 中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              添加自定义对话
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-nav__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    蔚蓝 Everest 官方 Wiki · 中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorials/First-Custom-Map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一张自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Guides/Custom-Maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    制图
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping-FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图 FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Map-Metadata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    地图元数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Entity-and-Trigger-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体与触发器文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义对话
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义对话
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#设置对话文件" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置对话文件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#创建对话字符串和-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建对话字符串和 ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用自动生成的-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用自动生成的 ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#在游戏中显示自定义对话" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在游戏中显示自定义对话
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#花式文本" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        花式文本
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#自定义表情" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义表情
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#自定义字体加载" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义字体加载
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自定义字体加载">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用在线工具" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用在线工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#手动使用-bmfont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手动使用 BMFont
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="手动使用 BMFont">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#向游戏字体添加字符" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        向游戏字体添加字符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#为游戏添加全新的自定义字体" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为游戏添加全新的自定义字体
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overworld-Customisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大地图自定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摄像机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Useful-Mapping-Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实用制图工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Helper-Manuals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helper 手册
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ahorn-Installation-Help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ahorn 安装帮助
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Tilesets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义图块集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tileset-Format-Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图块集格式参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adding-Stylegrounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    风格地面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reskinning-Entities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体换肤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Decal-Registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贴花注册表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Portraits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义肖像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音频
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adding-Custom-Audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义音频
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#设置对话文件" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置对话文件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#创建对话字符串和-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建对话字符串和 ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用自动生成的-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用自动生成的 ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#在游戏中显示自定义对话" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在游戏中显示自定义对话
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#花式文本" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        花式文本
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#自定义表情" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义表情
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#自定义字体加载" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义字体加载
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自定义字体加载">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用在线工具" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用在线工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#手动使用-bmfont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手动使用 BMFont
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="手动使用 BMFont">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#向游戏字体添加字符" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        向游戏字体添加字符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#为游戏添加全新的自定义字体" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为游戏添加全新的自定义字体
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>要添加自定义对话（Dialogue）内容，务必遵循正确的<a href="https://github.com/EverestAPI/Resources/wiki/Mod-Structure#mod-structure">模组结构</a>。
+此外，每当你添加或移动对话文件时，务必重启游戏（不过编辑其内容应该会立即生效）。</p>
+<blockquote>
+<p>[!Note]</p>
+<p>如果你使用 Notepad++，可以<a href="https://npp-user-manual.org/docs/user-defined-language-system/#import-a-udl">导入自定义用户定义语言 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>来处理 Celeste 对话 .txt 文件。<br />
+感谢 Celeste Discord 服务器上的 iSkLz 创建并发布了这个文件！<br />
+<a href="https://maddie480.ovh/resources/celeste_dialogs.xml">Celeste_Dialogs.xml <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a></p>
+<p>如果你使用 Visual Studio Code，可以安装 <a href="https://marketplace.visualstudio.com/items?itemName=catapillie.celeste-dialog-highlighter">Celeste Dialog Highlighter <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 扩展来为 Celeste 对话 .txt 文件启用语法高亮。</p>
+</blockquote>
+<h1 id="目录">目录<a class="headerlink" href="#目录" title="Permanent link">&para;</a></h1>
+<details>
+<summary>点击展开目录</summary>
+
+*    [设置对话文件](#设置对话文件)
+*    [创建对话字符串和 ID](#创建对话字符串和-id)
+*    [使用自动生成的 ID](#使用自动生成的-id)
+*    [在游戏中显示自定义对话](#在游戏中显示自定义对话)
+*    [花式文本](#花式文本)
+*    [自定义表情](#自定义表情)
+*    [自定义字体加载](#自定义字体加载)
+*    [使用 Font Generator 网站向英文字体添加字符](#使用-font-generator-网站向英文字体添加字符)
+
+
+</details>
+
+</div>
+<h2 id="设置对话文件">设置对话文件<a class="headerlink" href="#设置对话文件" title="Permanent link">&para;</a></h2>
+<p>在你的模组根文件夹中创建一个名为 <code>Dialog</code> 的文件夹。例如：<code>Celeste/Mods/MyExampleMap/Dialog</code></p>
+<p>现在你可以在该文件夹中创建一个新的 <code>.txt</code> 文件。这个文件的命名取决于你想为哪种语言添加自定义对话。原版 Celeste 中已有的语言对应的文件：</p>
+<ul>
+<li><code>Brazilian Portuguese.txt</code></li>
+<li><code>English.txt</code></li>
+<li><code>French.txt</code></li>
+<li><code>German.txt</code></li>
+<li><code>Italian.txt</code></li>
+<li><code>Japanese.txt</code></li>
+<li><code>Korean.txt</code></li>
+<li><code>Russian.txt</code></li>
+<li><code>Simplified Chinese.txt</code></li>
+<li><code>Spanish.txt</code></li>
+</ul>
+<p>如果你没有启用"显示文件扩展名"，建议启用它，以确保你的语言文件以 <code>.txt</code> 结尾，而不是 <code>.txt.txt</code>。</p>
+<p>如果调用的是当前所选语言的某个对话 ID，但该语言没有给出对应的特定 ID 或完整文件，Everest 会默认使用 <code>English.txt</code> 中的文本来显示对话。</p>
+<p>自定义语言的实现方式相同，但请务必确认具体对话文件需要如何命名。</p>
+<p>原版对话文件位于 <code>Celeste/Content/Dialog</code></p>
+<h2 id="创建对话字符串和-id">创建对话字符串和 ID<a class="headerlink" href="#创建对话字符串和-id" title="Permanent link">&para;</a></h2>
+<p>在对话文件中，你为对话设置字符串和 ID。游戏使用这些 ID 来查找应该在例如消息框（Message Box）中显示什么内容。</p>
+<p>来自原版 <code>English.txt</code> 的一个字符串及对应对话 ID 的示例：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CH2_THEO_B=
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>[THEO left normal]
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Sorry about that.
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Don&#39;t worry, I won&#39;t post that one.
+</code></pre></div>
+在这个例子中，<code>CH2_THEO_B</code> 就是 ID，它应该唯一命名，以免与原版对话或其他模组的自定义对话冲突。 </p>
+<p>例如：用 <code>MAPAUTHOR_MAPNAME_JUMPDIALOG_1</code> 而不是 <code>Jump1</code> </p>
+<p><code>[THEO left normal]</code> 用于确定应该使用哪种对话立绘（Dialogue Portrait）和对话框（Dialogue Box）。 </p>
+<p>在这个例子中，<code>THEO</code> 表示文本将显示 Theo 的对话框和对话立绘。这自然可以更改以使用不同角色的素材。要添加自定义立绘，请参见<a href="../Custom-Portraits/">此处</a></p>
+<p><code>left</code> 是对话立绘的方向，在这个例子中，立绘会出现在对话框的左侧。</p>
+<p><code>normal</code> 是对话立绘应使用的表情。某个角色有哪些可用表情，可以在调试模式控制台中使用 <code>portraits</code> 命令在游戏内查看。</p>
+<p>这些属性可以完全省略，例如当某个实体（entity）只显示文本而不显示对话框时，这很有用。</p>
+<p>对话的其余部分是当 ID 被调用时实际出现在游戏中的文本行。这里也可以使用文本命令。要查看一些可用于修改游戏内文本显示的命令及其具体作用的列表，请查看原版 <code>English.txt</code> 的顶部。游戏中还会用到其他命令，但并没有文档说明，比如 <code>*</code> 会让显示的文本抖动。<code>trigger</code> 命令在原版对话中是硬编码的，但在代码模组中可以通过 <code>Textbox.Say</code> 方法使用（下文会进一步说明）。如果你迫切需要更高级的过场动画，可以查看 <a href="https://gamebanana.com/mods/53678">Cruor 的 Lua Cutscenes 模组 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 或<a href="https://github.com/EverestAPI/Resources/wiki/Creating-Custom-Events">创建自定义事件</a>页面。</p>
+<p>如果你想把自己的文本翻译成另一种语言，请在对应语言的对话文件中创建相同的 ID。显示什么文本取决于当前选择的语言。</p>
+<h2 id="使用自动生成的-id">使用自动生成的 ID<a class="headerlink" href="#使用自动生成的-id" title="Permanent link">&para;</a></h2>
+<p>某些对话 ID 是由游戏根据文件夹结构和文件名自动生成并使用的。这些 ID 用于章节名、检查点名称、水晶之心诗篇等。要让这些 ID 显示你想要的文本，只需把游戏给你的 ID 复制到你的对话文件中，并将其设置为想要的文本。
+章节名示例： 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Map .bin file location: Celeste/Mods/MyExampleMap/Maps/ExampleLevelset/ExampleMapFolder/ExampleMap.bin
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Autogenerated ID: ExampleLevelset_ExampleMapFolder_ExampleMap
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Filled out String with Text: ExampleLevelset_ExampleMapFolder_ExampleMap= My Desired Name
+</code></pre></div></p>
+<h2 id="在游戏中显示自定义对话">在游戏中显示自定义对话<a class="headerlink" href="#在游戏中显示自定义对话" title="Permanent link">&para;</a></h2>
+<p>对于自动生成的 ID，这一步不是必需的，因为游戏已经会调用它们来显示。</p>
+<p>然而在地图中，不同的实体（entity）和触发器（trigger）也可以使用自定义对话 ID 来显示文本。
+示例包括：
+* 迷你文本框触发器（Minitextbox Trigger）
+* Everest 对话过场（Everest Dialog Cutscene）
+* Everest 自定义 NPC（Everest Custom NPC）</p>
+<p>要让某个对象使用指定的对话 ID，请在 Lönn 中右键单击它，打开实体属性菜单。
+在这里你很可能看到 <code>Dialog ID</code> 或类似性质的字段。把你的 ID 复制到该字段中，点击更新，保存你的地图，你的改动现在就应该会在游戏中生效了。</p>
+<p>代码模组还可以设置允许使用自定义对话 ID 的自定义对象。
+如果你想在自己的代码模组中使用自定义对话，请查看<a href="https://github.com/EverestAPI/Resources/wiki/Character-Dialogues">此页面</a>。</p>
+<h2 id="花式文本">花式文本<a class="headerlink" href="#花式文本" title="Permanent link">&para;</a></h2>
+<p>你的对话文件中的文本可以拥有特殊属性。以下是一些示例：
+- 彩色文本：<code>{#F94A4A}Red Text{#}</code>。十六进制颜色代码写在第一个 <code>{#}</code> 中。
+- 波浪文本：<code>{~}Wavy text{/~}</code>。
+- 抖动文本：<code>{*}Shaky text{/*}</code>。
+- 醉酒文本：<code>{%}Drunk text{/%}</code>。
+- 冲击文本：<code>{!}Impact text{/!}</code>。
+- 更大的文本：<code>{big}Big text{/big}</code>。
+- 变速文本：<code>{&gt;&gt; 0.5}Speed text{&gt;&gt;}</code>。这段文本会以半速播放。</p>
+<ul>
+<li>替换文本：<code>{+DIALOG_ID}</code>。带有对话 ID "DIALOG_ID" 的文本会出现（它可以包含其他属性，所以如果你经常使用带有特定颜色等的短字符串，这会很有用。<code>{+MADELINE}</code> 会使用存档文件中选择的名字。</li>
+<li>
+<p>移动文本框：<code>{anchor top}</code>、<code>{anchor middle}</code> 和 <code>{anchor bottom}</code> 允许文本框出现在不同的垂直位置。请记住，如果在句子中间使用，这会关闭文本框并重新打开它。</p>
+</li>
+<li>
+<p>换行：<code>New{n}line</code>。它会在同一个文本框中创建新的一行，而不进入新的一页（分页）。</p>
+</li>
+<li>
+<p>停顿：<code>Pause{0.5} between {0.5} words</code>。这个句子会在每个词之间停顿 0.5 秒。</p>
+</li>
+<li>
+<p>触发器：<code>{trigger #}</code>。这会在对话中途播放一个协程（coroutine）（例如让某个角色做一些事、触发某件事等），其中 <code>#</code> 是从 0 开始的编号索引，用于指定要播放哪个协程。
+  这可以通过 <code>Textbox.Say</code> 方法在代码模组中使用，该方法接收对话 ID，以及（可选地）一个或多个额外参数，每个参数包含一个要与 <code>trigger</code> 一起播放的协程。
+  可选地，你可以在数字后面附带一些文本（例如 <code>{trigger 0 Maddy walks to the right}</code>）。这些文本不会被解析，因此只是作为描述协程作用的注释（可以理解为舞台指示）。
+  <code>{silent_trigger #}</code> 的用法相同，但它可以在角色说话途中使用，而无需关闭文本框。</p>
+</li>
+</ul>
+<p>如果你安装了 Bits And Bolts Helper，还可以使用：
+- 不同大小的文本：<code>{^ 1.5}</code> 将文本大小设置为正常大小的 150%。<code>{/^}</code> 将文本大小重置为正常大小（1.0）</p>
+<h2 id="自定义表情">自定义表情<a class="headerlink" href="#自定义表情" title="Permanent link">&para;</a></h2>
+<p>表情（Emote）是你在游戏中任何通常显示对话的地方都可以使用的小图片。要添加表情，请将图片放入模组根文件夹中的 <code>Graphics/Atlases/Gui/emoji/yourusername/yourmodname/</code>。然后要开始使用你的新表情，只需在 <code>English.txt</code> 中写下 <code>:yourusername/yourmodname/emote_name:</code>，其中 <code>emote_name</code> 指你的表情文件名（不含扩展名）。</p>
+<p>如果你希望表情根据文本颜色改变颜色，可以将其设为_单色（monochrome）_。这可以通过在图片名称末尾、扩展名之前添加 <code>.m</code> 来实现，例如 <code>emote_name.m.png</code>。后缀 <code>.m</code> 不被视为表情名称的一部分。你可以像使用普通表情一样，在 <code>English.txt</code> 中输入 <code>:yourusername/yourmodname/emote_name:</code> 来使用它。</p>
+<h2 id="自定义字体加载">自定义字体加载<a class="headerlink" href="#自定义字体加载" title="Permanent link">&para;</a></h2>
+<p>如果你的对话特别涉及日语、中文或韩语，你可能会发现在游戏中查看对话时缺少一些字符。这是因为 Celeste 只附带部分字体。这种情况下，下面的内容会对你有所帮助。</p>
+<h3 id="使用在线工具">使用在线工具<a class="headerlink" href="#使用在线工具" title="Permanent link">&para;</a></h3>
+<p>为了简化这个过程，你可以使用<a href="https://maddie480.ovh/celeste/font-generator">这个在线工具 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 来生成自定义字体，或者获取缺失的日语、中文或韩语字符。</p>
+<p>如果生成的字体无法正常工作，欢迎在 <a href="https://discord.gg/celeste">Celeste Discord <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 上 @ 一下 maddie480。</p>
+<h3 id="手动使用-bmfont">手动使用 BMFont<a class="headerlink" href="#手动使用-bmfont" title="Permanent link">&para;</a></h3>
+<p>首先，确保你的对话文件使用 <strong>UTF-8-BOM</strong> 编码保存。你可以在记事本的"另存为"对话框中指定编码。</p>
+<h4 id="向游戏字体添加字符">向游戏字体添加字符<a class="headerlink" href="#向游戏字体添加字符" title="Permanent link">&para;</a></h4>
+<p>为了向游戏提供额外的字符，你需要生成这些字符的图片以及一个描述它们的 fnt 文件：</p>
+<ul>
+<li>下载 <a href="http://www.angelcode.com/products/bmfont/">BMFont <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>。</li>
+<li>使用 Options &gt; Load configuration（加载配置）加载<a href="https://maddie480.ovh/resources/celeste.bmfc">与游戏期望相符的配置 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>。</li>
+<li>选择 <strong>Options &gt; Font settings</strong>（字体设置），然后选择与你语言匹配的字体（你可能需要先下载并安装它们，<a href="https://www.google.com/get/noto/">Noto 字体可在此处获取 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>）：</li>
+<li>中文：Noto Sans CJK SC Medium</li>
+<li>日语：Noto Sans CJK JP Medium</li>
+<li>韩语：Noto Sans CJK KR Medium</li>
+<li>俄语：Noto Sans Med</li>
+<li>其他语言：Renogare</li>
+<li>选择 <strong>Edit &gt; Clear all chars from font</strong>（从字体中清除所有字符），然后选择 <strong>Edit &gt; Select chars from file</strong>（从文件中选择字符），再选择你的对话文件。这将确保你的对话文件中用到的所有字符（且只有这些字符）被导出。</li>
+<li>选择 <strong>Options &gt; Save bitmap font as</strong>（将位图字体另存为），然后用一个唯一的名称保存你的文件（<code>mynickname_mymodname.fnt</code>）。结果你应该会得到一个 fnt 文件和几个 png 文件（<code>mynickname_mymodname_0.png</code>、<code>mynickname_mymodname_1.png</code>……）</li>
+<li>将 fnt 文件重命名（取决于语言）：</li>
+<li>chinese.fnt</li>
+<li>japanese.fnt</li>
+<li>korean.fnt</li>
+<li>russian.fnt</li>
+<li>renogare64.fnt</li>
+<li>将 fnt 和 png 文件放入 <code>Mods/yourmod/Dialog/Fonts</code></li>
+</ul>
+<p>当游戏启动时，你应该会在控制台或 log.txt 中看到类似下面的内容，告诉你缺失的字符已成功添加到游戏字体中：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[PixelFont] Loading font: D:\SteamLibrary\steamapps\common\Celeste\Content\Dialog\Fonts\korean.fnt
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>[PixelFont] =&gt; vanilla font file
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>[PixelFont] =&gt; mod font file from ExtendedVariantMode
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>[PixelFont] ==&gt; Imported 15 new characters
+</code></pre></div></p>
+<h4 id="为游戏添加全新的自定义字体">为游戏添加全新的自定义字体<a class="headerlink" href="#为游戏添加全新的自定义字体" title="Permanent link">&para;</a></h4>
+<p>如果你想要一个"自定义字体"语言，或者想把 Celeste 翻译成使用不同字母系统的语言，你可能会对这一节感兴趣。这个过程与上一节非常相似：</p>
+<ul>
+<li>下载 <a href="http://www.angelcode.com/products/bmfont/">BMFont <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>。</li>
+<li>使用 Options &gt; Load configuration（加载配置）加载<a href="https://maddie480.ovh/resources/celeste.bmfc">与游戏期望相符的配置 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>。</li>
+<li>选择 <strong>Options &gt; Font settings</strong>（字体设置），然后选择你想要的字体。</li>
+<li>选择 <strong>Edit &gt; Clear all chars from font</strong>（从字体中清除所有字符），然后选择 <strong>Edit &gt; Select chars from file</strong>（从文件中选择字符），再选择你的对话文件。这将确保你的对话文件中用到的所有字符（且只有这些字符）被导出。</li>
+<li>选择 <strong>Options &gt; Save bitmap font as</strong>（将位图字体另存为），然后用一个唯一的名称保存你的文件（<code>mynickname_mymodname.fnt</code>）。结果你应该会得到一个 fnt 文件和几个 png 文件（<code>mynickname_mymodname_0.png</code>、<code>mynickname_mymodname_1.png</code>……）</li>
+<li>将 fnt 和 png 文件放入 <code>Mods/yourmod/Dialog/Fonts</code></li>
+<li>在你的对话文件中，编辑这一行，并将 "Renogare" 替换为你的实际字体名称（<strong>不是</strong>你给 fnt 文件起的名字）。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>    FONT=Renogare,64
+</code></pre></div></li>
+</ul>
+<p>当游戏启动时，你应该会在控制台或 log.txt 中看到类似下面的内容，告诉你字体已加载：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[PixelFont] Loading font: D:\SteamLibrary\steamapps\common\Celeste\Content\Dialog\Fonts\comic_sans.fnt
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>[PixelFont] =&gt; mod font file from CelesteInComicSans
+</code></pre></div></p>
+<p>想要查看一个带自定义字体的可运行语言模组示例，请查看<a href="https://maddie480.ovh/celeste/dl?id=CelesteInComicSans&amp;mirror=1">这个示例模组 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>。它为你提供了使用 Comic Sans 字体的 Celeste。是的，我知道。</p>
+<h1 id="使用-font-generator-网站向英文字体添加字符">使用 Font Generator 网站向英文字体添加字符<a class="headerlink" href="#使用-font-generator-网站向英文字体添加字符" title="Permanent link">&para;</a></h1>
+<p>使用<a href="https://maddie480.ovh/celeste/font-generator">Font Generator <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 向英文字体添加字符是可行的，但这需要一些小技巧，因为原版英文字体（Renogare）里缺少的字符其实并不多（大部分字符原版字体里都已经有了）……所以该网站通常会告诉你 "All characters are missing from the font"（所有字符都缺失）。</p>
+<p>你可以通过 "Custom Font"（自定义字体）选项实现这一点。 
+1. 打开 <a href="https://maddie480.ovh/celeste/font-generator">Font Generator 页面 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 并按以下内容填写：
+  - <strong>Font（字体）：</strong> Custom Font
+  - <strong>Font name（字体名称）：</strong> <code>renogare64</code>
+  - <strong>Font file（字体文件）：</strong> <a href="https://maddie480.ovh/fonts/NotoSans-Medium.ttf">Noto Sans Medium <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>（这是原版在俄语、中文等语言中使用的字体）
+  - <strong>Dialog file（对话文件）：</strong> 提供一个 <code>.txt</code> 文件，包含你想添加的所有字符（且只包含这些字符）
+2. 下载生成的 zip 文件，并解压到你的模组文件夹中的 <code>Dialog/Fonts</code>
+3. 用文本编辑器打开 <code>renogare64.fnt</code>，将 <code>Noto Sans Medium</code> 替换为 <code>Renogare</code>：</p>
+<div class="highlight"><pre><span></span><code>![截图中高亮显示的要替换的文本](https://github.com/user-attachments/assets/0ebd0042-0a46-442a-9249-4324f0cfbf0c)
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Entity-and-Trigger-Documentation/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 实体与触发器文档">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                实体与触发器文档
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Overworld-Customisation/" class="md-footer__link md-footer__link--next" aria-label="下一页: 大地图自定义">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                大地图自定义
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

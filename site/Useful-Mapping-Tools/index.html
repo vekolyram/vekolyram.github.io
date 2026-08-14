@@ -1,0 +1,2072 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Celeste（蔚蓝）Everest modding API 官方 wiki 的 Custom Maps 相关教程中文翻译">
+      
+      
+      
+      
+        <link rel="prev" href="../Camera/">
+      
+      
+        <link rel="next" href="../Mapping/Helper-Manuals/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>实用制图工具 - 蔚蓝 Everest 官方 Wiki · 中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#本文目前正在建设中-不过你或许已经能从中学到一些东西了" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-header__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            蔚蓝 Everest 官方 Wiki · 中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              实用制图工具
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-nav__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    蔚蓝 Everest 官方 Wiki · 中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorials/First-Custom-Map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一张自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guides/Custom-Maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    制图
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping-FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图 FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Map-Metadata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    地图元数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Entity-and-Trigger-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体与触发器文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Adding-Custom-Dialogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义对话
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overworld-Customisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大地图自定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摄像机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实用制图工具
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实用制图工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#本文目前正在建设中-不过你或许已经能从中学到一些东西了" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本文目前正在建设中，不过你或许已经能从中学到一些东西了！
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#简介" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lönn-基础技巧" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lönn 基础技巧
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lönn 基础技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#节点" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#翻转-旋转实体与贴花-decal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        翻转/旋转实体与贴花（decal）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#开始使用复制-粘贴" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开始使用复制/粘贴
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="开始使用复制/粘贴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#用文本文件作为粘贴转储" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用文本文件作为粘贴转储
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#收藏工具" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        收藏工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用调试控制台" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用调试控制台
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用调试控制台">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#调试命令" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调试命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lönn-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lönn Scripts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lönn Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#由于-lönn-scripts-可以更改地图中的任何内容-你只应使用你信任的模组作者提供的脚本-因为恶意脚本可能毁掉你的整张地图-而且脚本并不总能提供可用的撤销功能-如果你不确定某个脚本的效果-请先备份你的-bin-文件" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 由于 Lönn Scripts 可以更改地图中的任何内容，你只应使用你信任的模组作者提供的脚本，因为恶意脚本可能毁掉你的整张地图，而且脚本并不总能提供可用的撤销功能！如果你不确定某个脚本的效果，请先备份你的 bin 文件！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#标准脚本" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标准脚本
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="标准脚本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#一次性修改多个同类实体的属性" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一次性修改多个同类实体的属性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#将某种类型的所有图块替换为其他图块" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        将某种类型的所有图块替换为其他图块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#从另一张地图复制房间" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从另一张地图复制房间
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#其他有用的脚本" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他有用的脚本
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他有用的脚本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#本节所述为撰写本文时脚本的效果-模组作者可能随时修改脚本代码-请谨慎操作" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 本节所述为撰写本文时脚本的效果。模组作者可能随时修改脚本代码，请谨慎操作！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kyfex-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kyfex Helper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aurora-s-lönn-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aurora's Lönn Plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bits-bolts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bits &amp; Bolts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bits &amp; Bolts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#该模组提供的两个工具可能无法与所有触发器-控制器正常配合工作-因为其中一些可能并不期望被另一个模组移动-调整大小-加载-所以请不要因为-bits-bolts-模组没有实现适当的互操作性而责怪辅助模组" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 该模组提供的两个工具可能无法与所有触发器/控制器正常配合工作，因为其中一些可能并不期望被另一个模组移动/调整大小/加载，所以请不要因为 Bits &amp; Bolts 模组没有实现适当的互操作性而责怪辅助模组！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#调整触发器大小-resize-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调整触发器大小（Resize Triggers）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#全局房间加载-global-room-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全局房间加载（Global Room Loading）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#celeste-tas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Celeste TAS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Celeste TAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#调试光标-debug-cursor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调试光标（Debug Cursor）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aurora-s-lönn-plugin_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aurora's Lönn Plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Helper-Manuals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helper 手册
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Ahorn-Installation-Help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ahorn 安装帮助
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Custom-Tilesets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义图块集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Tileset-Format-Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图块集格式参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Adding-Stylegrounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    风格地面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Reskinning-Entities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体换肤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Decal-Registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贴花注册表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Custom-Portraits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义肖像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音频
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping/Adding-Custom-Audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义音频
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#本文目前正在建设中-不过你或许已经能从中学到一些东西了" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本文目前正在建设中，不过你或许已经能从中学到一些东西了！
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#简介" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lönn-基础技巧" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lönn 基础技巧
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lönn 基础技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#节点" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#翻转-旋转实体与贴花-decal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        翻转/旋转实体与贴花（decal）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#开始使用复制-粘贴" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开始使用复制/粘贴
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="开始使用复制/粘贴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#用文本文件作为粘贴转储" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用文本文件作为粘贴转储
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#收藏工具" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        收藏工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用调试控制台" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用调试控制台
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用调试控制台">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#调试命令" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调试命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lönn-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lönn Scripts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lönn Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#由于-lönn-scripts-可以更改地图中的任何内容-你只应使用你信任的模组作者提供的脚本-因为恶意脚本可能毁掉你的整张地图-而且脚本并不总能提供可用的撤销功能-如果你不确定某个脚本的效果-请先备份你的-bin-文件" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 由于 Lönn Scripts 可以更改地图中的任何内容，你只应使用你信任的模组作者提供的脚本，因为恶意脚本可能毁掉你的整张地图，而且脚本并不总能提供可用的撤销功能！如果你不确定某个脚本的效果，请先备份你的 bin 文件！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#标准脚本" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标准脚本
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="标准脚本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#一次性修改多个同类实体的属性" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一次性修改多个同类实体的属性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#将某种类型的所有图块替换为其他图块" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        将某种类型的所有图块替换为其他图块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#从另一张地图复制房间" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从另一张地图复制房间
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#其他有用的脚本" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他有用的脚本
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他有用的脚本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#本节所述为撰写本文时脚本的效果-模组作者可能随时修改脚本代码-请谨慎操作" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 本节所述为撰写本文时脚本的效果。模组作者可能随时修改脚本代码，请谨慎操作！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kyfex-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kyfex Helper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aurora-s-lönn-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aurora's Lönn Plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bits-bolts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bits &amp; Bolts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bits &amp; Bolts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#该模组提供的两个工具可能无法与所有触发器-控制器正常配合工作-因为其中一些可能并不期望被另一个模组移动-调整大小-加载-所以请不要因为-bits-bolts-模组没有实现适当的互操作性而责怪辅助模组" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 该模组提供的两个工具可能无法与所有触发器/控制器正常配合工作，因为其中一些可能并不期望被另一个模组移动/调整大小/加载，所以请不要因为 Bits &amp; Bolts 模组没有实现适当的互操作性而责怪辅助模组！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#调整触发器大小-resize-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调整触发器大小（Resize Triggers）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#全局房间加载-global-room-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全局房间加载（Global Room Loading）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#celeste-tas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Celeste TAS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Celeste TAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#调试光标-debug-cursor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调试光标（Debug Cursor）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aurora-s-lönn-plugin_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aurora's Lönn Plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h2 id="本文目前正在建设中-不过你或许已经能从中学到一些东西了">本文目前正在建设中，不过你或许已经能从中学到一些东西了！<a class="headerlink" href="#本文目前正在建设中-不过你或许已经能从中学到一些东西了" title="Permanent link">&para;</a></h2>
+<h1 id="简介">简介<a class="headerlink" href="#简介" title="Permanent link">&para;</a></h1>
+<p>安装 Lönn 和 Everest 并创建你的第一张地图后，你可能会在编辑较大地图、高效修改属性时遇到一些问题，并自问：难道真的没有更快的方法来解决这些问题吗？</p>
+<p>答案是：当然有。所以这里是一份关于 Celeste 地图制作的有用但不太为人所知的工具清单（并非详尽无遗），尽量为你节省工作量。</p>
+<h1 id="lönn-基础技巧">Lönn 基础技巧<a class="headerlink" href="#lönn-基础技巧" title="Permanent link">&para;</a></h1>
+<p>虽然节点是核心功能，但许多 Lönn 技巧仍鲜为人知，本节旨在改变这一状况。</p>
+<h2 id="节点">节点<a class="headerlink" href="#节点" title="Permanent link">&para;</a></h2>
+<p>一些实体（entity）和触发器（trigger）在放置时会自动附带一个或两个节点，但在相当多的情况下，你可以用 <code>N</code> 键添加更多节点来影响触发器/实体的工作方式。例如，<strong>草莓（Strawberry）</strong> 实体可以通过添加节点变成带种子的草莓，每个节点就是一个种子。另一个常见用法是 <strong>FrostHelper 激活器（Activator）</strong>，它可以与多个节点配合使用，一次性触发多个触发器。这意味着你无需叠加多个触发器来串联它们，从而提升了可读性。</p>
+<h2 id="翻转-旋转实体与贴花-decal">翻转/旋转实体与贴花（decal）<a class="headerlink" href="#翻转-旋转实体与贴花-decal" title="Permanent link">&para;</a></h2>
+<p>虽然尖刺、贴花和其他一些物体可以朝不同方向摆放，但这些大多是可以使用属性对话框编辑的属性。不过，如果它们所属的模组支持，你也可以在放置前或选中时使用快捷键水平翻转（<code>H</code>）或垂直翻转（<code>V</code>），或以 90° 旋转（<code>R</code>）。这能极大提升你摆放贴花和其他装饰元素的速度。</p>
+<h2 id="开始使用复制-粘贴">开始使用复制/粘贴<a class="headerlink" href="#开始使用复制-粘贴" title="Permanent link">&para;</a></h2>
+<p>对于某些对象，比如自定义转针/尖刺或贴花，你在同一张地图中可能会以相同的属性频繁使用它们，即便这些属性并非默认值。与其使用 <code>Placement</code> 工具，不如把每种要用的对象在地图某个位置放一份，然后直接复制（<code>Ctrl+C</code>）粘贴（<code>Ctrl+V</code>）到目标位置，就像画画时使用调色板一样。</p>
+<h3 id="用文本文件作为粘贴转储">用文本文件作为粘贴转储<a class="headerlink" href="#用文本文件作为粘贴转储" title="Permanent link">&para;</a></h3>
+<p>根据 Lönn 的编码方式，每当你复制一个对象时，它实际上是以 JSON 对象的形式存储在剪贴板中的。这意味着你可以复制一个 Lönn 对象并将其粘贴到文本文件中。这样一来，你可以在继续工作的同时把对象保存在 Lönn 之外，甚至可以用文本编辑器修改对象的属性！</p>
+<h2 id="收藏工具">收藏工具<a class="headerlink" href="#收藏工具" title="Permanent link">&para;</a></h2>
+<p>每当你在 <code>Placement</code> 或任何图块集绘制工具等工具中翻阅可选项目时，都可以双击单个条目使它们排在列表顶部，这样可以节省时间，不必每次需要该实体时都重新搜索。</p>
+<h1 id="使用调试控制台">使用调试控制台<a class="headerlink" href="#使用调试控制台" title="Permanent link">&para;</a></h1>
+<p>如果你以 <strong>调试模式（Debug Mode）</strong>（可以在 <strong>Mod Options（模组选项）</strong> 中找到）运行 Everest（在地图制作时通常很有用），你就可以经常使用 <strong>调试控制台（Debug Console）</strong> 来辅助地图制作。你可以按 <code>.</code> 键打开它，这会打开一个文本提示符，并在屏幕上显示多个碰撞箱。</p>
+<h2 id="调试命令">调试命令<a class="headerlink" href="#调试命令" title="Permanent link">&para;</a></h2>
+<p>控制台打开后，你可以用键盘输入调试命令，按下 <code>ENTER</code> 即可执行。</p>
+<p>基础游戏已经加入了相当多的基础调试命令，例如 <code>give_golden</code>、<code>returntomap</code>、<code>mainmenu</code> 和 <code>exit</code>（你可以使用 <code>help</code> 命令查看完整列表）。有些地图可能还会添加更多命令，最值得一提的是来自 <a href="https://gamebanana.com/tools/9805">Aurora's Helper <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a> 的 <code>ah_flag</code> 和 <code>ah_flag_set</code> 命令，它们可以让你在游戏内更改标志以便测试。</p>
+<h1 id="lönn-scripts"><a href="https://gamebanana.com/tools/8050">Lönn Scripts <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a><a class="headerlink" href="#lönn-scripts" title="Permanent link">&para;</a></h1>
+<p><strong>Lönn Scripts</strong> 是一个强大的 Lönn 插件，它会在 Lönn 工具栏中新增一个区块：<strong>Scripts（脚本）</strong>！
+这些是带有参数的小段代码，可用于自动化编辑你的地图。
+虽然该模组本身已经附带了一些有用的脚本，但还有很多其他模组会添加更多脚本来进一步扩充你的工具箱！
+如有需要，你也可以编写自己的 Lönn Scripts，但本文将不讨论这一点。</p>
+<h4 id="由于-lönn-scripts-可以更改地图中的任何内容-你只应使用你信任的模组作者提供的脚本-因为恶意脚本可能毁掉你的整张地图-而且脚本并不总能提供可用的撤销功能-如果你不确定某个脚本的效果-请先备份你的-bin-文件">⚠️ 由于 Lönn Scripts 可以更改地图中的任何内容，你<strong>只应</strong>使用你信任的模组作者提供的脚本，因为恶意脚本可能毁掉你的整张地图，而且脚本并不总能提供可用的撤销功能！如果你不确定某个脚本的效果，请先备份你的 bin 文件！<a class="headerlink" href="#由于-lönn-scripts-可以更改地图中的任何内容-你只应使用你信任的模组作者提供的脚本-因为恶意脚本可能毁掉你的整张地图-而且脚本并不总能提供可用的撤销功能-如果你不确定某个脚本的效果-请先备份你的-bin-文件" title="Permanent link">&para;</a></h4>
+<p>脚本的运行方式是：在右侧工具栏的 <code>scripts</code> 区块中选择脚本，然后在房间内点击。你可以让脚本只影响 <code>Current Room（当前房间）</code>，或影响地图中的所有房间（<code>All Rooms</code>）。大多数脚本会在你点击后弹出一个窗口，要求更多参数，并且只有在你提交该对话框后才会继续修改你的地图。</p>
+<h2 id="标准脚本">标准脚本<a class="headerlink" href="#标准脚本" title="Permanent link">&para;</a></h2>
+<p>以下是使用 Lönn Scripts 自带的脚本可以做到的事情（非详尽列表）：</p>
+<h3 id="一次性修改多个同类实体的属性">一次性修改多个同类实体的属性<a class="headerlink" href="#一次性修改多个同类实体的属性" title="Permanent link">&para;</a></h3>
+<p>使用 <code>Change Attributes</code> 脚本，你可以选择任意实体类型（使用其 Lönn 名称）并将其替换为其他任何类型，或者只修改实体属性（选择与目标相同的实体类型）。</p>
+<p>在大多数情况下，你只想替换某些属性，例如房间内所有转针的转针类型，同时保留它们是否应该附着在实体上的设置；这种情况下，你应该使用 <code>Allow Preserving</code> 选项。这样你就能选择要修改哪些参数、保持哪些参数不变。</p>
+<h3 id="将某种类型的所有图块替换为其他图块">将某种类型的所有图块替换为其他图块<a class="headerlink" href="#将某种类型的所有图块替换为其他图块" title="Permanent link">&para;</a></h3>
+<p>使用 <code>Replace Tiles</code> 脚本，你可以选择任意图块类型（前景或背景），并将其改为另一个图块集。
+如果你最初选择了原版图块集（例如 Summit 图块集），但后来决定地图的图块上不应有积雪，而应改用 SummitNoSnow 图块，这个功能会特别有用。</p>
+<p>脚本会询问你要更改的图块的<strong>图块集 ID</strong>，以及要改为的图块集 ID，因此你需要找到这些 ID。
+你可以查看 <a href="../Mapping/Custom-Tilesets/#第-1-步-制作你自己的-xml">图块集 XML</a>，也可以在 Lönn 中选择一个图块并复制粘贴到文本编辑器中。</p>
+<h3 id="从另一张地图复制房间">从另一张地图复制房间<a class="headerlink" href="#从另一张地图复制房间" title="Permanent link">&para;</a></h3>
+<p>使用 <code>Copy Room From Map</code> 脚本，你可以快速把任何其他 bin 文件中的某个房间副本放进当前地图，在处理较大的地图制作项目时非常有用。</p>
+<h2 id="其他有用的脚本">其他有用的脚本<a class="headerlink" href="#其他有用的脚本" title="Permanent link">&para;</a></h2>
+<h4 id="本节所述为撰写本文时脚本的效果-模组作者可能随时修改脚本代码-请谨慎操作">⚠️ 本节所述为撰写本文时脚本的效果。模组作者可能随时修改脚本代码，请谨慎操作！<a class="headerlink" href="#本节所述为撰写本文时脚本的效果-模组作者可能随时修改脚本代码-请谨慎操作" title="Permanent link">&para;</a></h4>
+<h3 id="kyfex-helper"><a href="https://gamebanana.com/mods/581132">Kyfex Helper <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a><a class="headerlink" href="#kyfex-helper" title="Permanent link">&para;</a></h3>
+<p>这个实用的辅助模组添加了一些脚本，用于在多张地图之间快速转移内容（如风格地面（styleground）或房间）。</p>
+<p>它添加了 <code>Copy Whole Map</code> 脚本，用于从另一张地图复制所有房间，可选地为房间名添加前缀，这在合并 Heartsides 或类似的合作项目中极为有用。</p>
+<p>另一个有用的脚本是 <code>Copy Stylegrounds From Map</code>，它可以把另一个 bin 文件中的所有风格地面添加到当前文件，可选地为 <code>Room</code> 和 <code>Flag</code> 过滤器添加前缀、自定义 <code>Tags</code>，还可以为所有位置型风格地面添加偏移，或将所有复制过来的风格地面包裹进一个新的风格地面组。</p>
+<p>还有一个 <code>Randomize Decal Colors</code> 脚本，用于替换匹配列表中所有贴花的着色，将它们改为从另一个列表中随机选择的颜色。当你追求自然风格的装饰、想要更多样化的贴花时，这个功能特别有用。</p>
+<h3 id="aurora-s-lönn-plugin"><a href="https://gamebanana.com/tools/12572">Aurora's Lönn Plugin <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a><a class="headerlink" href="#aurora-s-lönn-plugin" title="Permanent link">&para;</a></h3>
+<p>这个多功能的辅助模组添加了更多脚本，它们与 <a href="#一次性修改多个同类实体的属性">Change Attributes</a> 脚本类似，用于编辑地图中对象的属性。不过，这些脚本允许更多精细的选项。你不仅可以覆盖实体的属性，还可以指定一个原始值，并只将该值替换为新值，这意味着你可以，例如，把某种类型的全部转针替换为新类型，而让其他类型的转针保持原样。</p>
+<p>不过，这一选项的代价是每次只能编辑一个属性。</p>
+<h1 id="bits-bolts"><a href="https://gamebanana.com/mods/457887">Bits &amp; Bolts <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a><a class="headerlink" href="#bits-bolts" title="Permanent link">&para;</a></h1>
+<h4 id="该模组提供的两个工具可能无法与所有触发器-控制器正常配合工作-因为其中一些可能并不期望被另一个模组移动-调整大小-加载-所以请不要因为-bits-bolts-模组没有实现适当的互操作性而责怪辅助模组">⚠️ 该模组提供的两个工具可能无法与所有触发器/控制器正常配合工作，因为其中一些可能并不期望被另一个模组移动/调整大小/加载，所以请不要因为 Bits &amp; Bolts 模组没有实现适当的互操作性而责怪辅助模组！<a class="headerlink" href="#该模组提供的两个工具可能无法与所有触发器-控制器正常配合工作-因为其中一些可能并不期望被另一个模组移动-调整大小-加载-所以请不要因为-bits-bolts-模组没有实现适当的互操作性而责怪辅助模组" title="Permanent link">&para;</a></h4>
+<p>除了大量其他内容外，该模组还添加了一些有用的工具，让你的触发器设置更整洁、可读性更强，将来可能会为你和你的合作者节省大量时间。</p>
+<h2 id="调整触发器大小-resize-triggers">调整触发器大小（Resize Triggers）<a class="headerlink" href="#调整触发器大小-resize-triggers" title="Permanent link">&para;</a></h2>
+<p>一个简单却有效的触发器：它会选中其覆盖范围内所有其他触发器，并调整它们的大小，使其覆盖整个房间、整张地图，或仅覆盖其节点的区域。在每个房间放置一个并将其设置为覆盖整个房间，你就可以轻松地使用触发器来控制黑暗、泛光、色调分级和音乐，而不必用成堆不必要的触发器塞满所有房间。</p>
+<h2 id="全局房间加载-global-room-loading">全局房间加载（Global Room Loading）<a class="headerlink" href="#全局房间加载-global-room-loading" title="Permanent link">&para;</a></h2>
+<p>你还可以（只要启用了该模组）添加一个以 <code>_bb_global_</code> 前缀命名的房间，使该房间在地图加载期间始终被加载。这样你就可以把控制器之类的实体、或 Extended Variant 设置之类的触发器集中放在一个地方，同时让它们影响整张地图。</p>
+<h1 id="celeste-tas"><a href="https://gamebanana.com/tools/6715">Celeste TAS <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a><a class="headerlink" href="#celeste-tas" title="Permanent link">&para;</a></h1>
+<p>虽然该模组是为辅助游戏的 TAS 通关而专门开发的，但它也附带了一些对地图制作很有用的工具。</p>
+<h2 id="调试光标-debug-cursor">调试光标（Debug Cursor）<a class="headerlink" href="#调试光标-debug-cursor" title="Permanent link">&para;</a></h2>
+<p>作为该模组的功能之一，打开调试控制台会添加一个可以用鼠标移动的光标。在左上角你会看到光标所在位置的若干技术细节，有时这些细节可能很重要。左键点击屏幕上的任意位置会显示该处触发器/实体的详细信息。如果该处存在多个实体/触发器，多次点击会在堆叠的实体/触发器之间循环。这可以用来查找任意对象的 <code>entity ID</code> 和 <code>entity class</code>，某些高级模组实体可能会需要这些信息。需要特别注意的是，<code>entity class</code> 和 <code>Lönn Entity Type</code> <strong>并不</strong>是同一回事！</p>
+<h1 id="aurora-s-lönn-plugin_1"><a href="https://gamebanana.com/tools/12572">Aurora's Lönn Plugin <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a><a class="headerlink" href="#aurora-s-lönn-plugin_1" title="Permanent link">&para;</a></h1>
+<p>该模组的关键功能之一是在游戏运行时，为 Lönn 中的地图添加更多信息。</p>
+<p>使用 <code>View &gt; Show Player Silhouette</code> 可以激活玩家的轨迹，显示玩家移动过的路径并在死亡时重置，这样你可以先游玩地图中的一段，再放置必要的危险物来强制走位。如果剪影显示的位置不够具体，你可能更想使用 <code>View &gt; Show Player Hitbox Silhouette</code>，它会精确显示玩家碰撞箱的轨迹。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Camera/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 摄像机">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                摄像机
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Mapping/Helper-Manuals/" class="md-footer__link md-footer__link--next" aria-label="下一页: Helper 手册">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Helper 手册
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

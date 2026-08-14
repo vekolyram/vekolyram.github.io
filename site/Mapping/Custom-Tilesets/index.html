@@ -1,0 +1,1995 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Celeste（蔚蓝）Everest modding API 官方 wiki 的 Custom Maps 相关教程中文翻译">
+      
+      
+      
+      
+        <link rel="prev" href="../Ahorn-Installation-Help/">
+      
+      
+        <link rel="next" href="../Tileset-Format-Reference/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>自定义图块集 - 蔚蓝 Everest 官方 Wiki · 中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#目录" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-header__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            蔚蓝 Everest 官方 Wiki · 中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              自定义图块集
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="蔚蓝 Everest 官方 Wiki · 中文文档" class="md-nav__button md-logo" aria-label="蔚蓝 Everest 官方 Wiki · 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    蔚蓝 Everest 官方 Wiki · 中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EverestAPI/Resources" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorials/First-Custom-Map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一张自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Guides/Custom-Maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    制图
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping-FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    制图 FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Map-Metadata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    地图元数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Entity-and-Trigger-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体与触发器文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adding-Custom-Dialogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义对话
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overworld-Customisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大地图自定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摄像机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Useful-Mapping-Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实用制图工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Helper-Manuals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helper 手册
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ahorn-Installation-Help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ahorn 安装帮助
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义图块集
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义图块集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#设计图块集" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设计图块集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="设计图块集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用-0x0ade-的改进版模板" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 0x0ade 的改进版模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用原版模板" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用原版模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#让图块集在游戏中显示" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        让图块集在游戏中显示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="让图块集在游戏中显示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#第-1-步-制作你自己的-xml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 步 - 制作你自己的 xml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第-2-步-启用-0x0ade-的自定义模板" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 2 步 - 启用 0x0ade 的自定义模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第-3-步-向-xml-中添加图块集" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 3 步 - 向 xml 中添加图块集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第-4-步-将图块集图片添加到你的模组中" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 4 步 - 将图块集图片添加到你的模组中
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第-5-步-将-xml-关联到你的地图" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 5 步 - 将 xml 关联到你的地图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#添加自定义碎块" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加自定义碎块
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#添加动画图块" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加动画图块
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#让你的图块集忽略其他图块" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        让你的图块集忽略其他图块
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#为你的图块集设置显示名称" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为你的图块集设置显示名称
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#常见问题与常见错误" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见问题与常见错误
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题与常见错误">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#我的图块集没有出现在-lönn-中" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的图块集没有出现在 Lönn 中！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#我的图块集出现了-但只是一个粉色贴图" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的图块集出现了，但只是一个粉色贴图！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#当我将-xml-路径输入-lönn-时-出现了错误" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        当我将 xml 路径输入 Lönn 时，出现了错误！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#如何添加背景图块" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        如何添加背景图块？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#图块集声音-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图块集声音 ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tileset-Format-Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图块集格式参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adding-Stylegrounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    风格地面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reskinning-Entities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实体换肤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Decal-Registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贴花注册表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Portraits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自定义肖像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音频
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adding-Custom-Audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    添加自定义音频
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#设计图块集" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设计图块集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="设计图块集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用-0x0ade-的改进版模板" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 0x0ade 的改进版模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用原版模板" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用原版模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#让图块集在游戏中显示" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        让图块集在游戏中显示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="让图块集在游戏中显示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#第-1-步-制作你自己的-xml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 步 - 制作你自己的 xml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第-2-步-启用-0x0ade-的自定义模板" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 2 步 - 启用 0x0ade 的自定义模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第-3-步-向-xml-中添加图块集" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 3 步 - 向 xml 中添加图块集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第-4-步-将图块集图片添加到你的模组中" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 4 步 - 将图块集图片添加到你的模组中
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第-5-步-将-xml-关联到你的地图" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 5 步 - 将 xml 关联到你的地图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#添加自定义碎块" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加自定义碎块
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#添加动画图块" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加动画图块
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#让你的图块集忽略其他图块" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        让你的图块集忽略其他图块
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#为你的图块集设置显示名称" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为你的图块集设置显示名称
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#常见问题与常见错误" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见问题与常见错误
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题与常见错误">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#我的图块集没有出现在-lönn-中" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的图块集没有出现在 Lönn 中！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#我的图块集出现了-但只是一个粉色贴图" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的图块集出现了，但只是一个粉色贴图！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#当我将-xml-路径输入-lönn-时-出现了错误" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        当我将 xml 路径输入 Lönn 时，出现了错误！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#如何添加背景图块" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        如何添加背景图块？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#图块集声音-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图块集声音 ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="目录">目录<a class="headerlink" href="#目录" title="Permanent link">&para;</a></h1>
+<details>
+<summary>点击展开目录</summary>
+
+*    [设计图块集](#设计图块集)
+*    [让图块集在游戏中显示](#让图块集在游戏中显示)
+*    [添加自定义碎块](#添加自定义碎块)
+*    [添加动画图块](#添加动画图块)
+*    [让你的图块集忽略其他图块](#让你的图块集忽略其他图块)
+*    [为你的图块集设置显示名称](#为你的图块集设置显示名称)
+*    [常见问题与常见错误](#常见问题与常见错误)
+*    [图块集声音 ID](#图块集声音-id)
+
+
+</details>
+
+<h2 id="设计图块集">设计图块集<a class="headerlink" href="#设计图块集" title="Permanent link">&para;</a></h2>
+<p>创建图块集时，你可以使用原版模板，也可以使用 0x0ade 的改进版模板。如果从零开始创建图块集，建议使用 0x0ade 的模板。如果你在编辑现有图块集，则可能需要使用原版模板。</p>
+<p>你也可以<a href="../Tileset-Format-Reference/">创建自己的模板</a>，不过这里不作讨论。</p>
+<h4 id="使用-0x0ade-的改进版模板">使用 0x0ade 的改进版模板<a class="headerlink" href="#使用-0x0ade-的改进版模板" title="Permanent link">&para;</a></h4>
+<p>下面的模板可以在标准图像编辑器中复制和编辑。注意它必须以 png 格式保存，并且不能调整大小。</p>
+<p><img alt="翡翠模板" src="https://i.imgur.com/jUq838l.png" /></p>
+<p>这是带注释的模板版本：</p>
+<p><img alt="带注释的翡翠模板" src="https://maddie480.ovh/img/annotated_better_template.png" /></p>
+<h4 id="使用原版模板">使用原版模板<a class="headerlink" href="#使用原版模板" title="Permanent link">&para;</a></h4>
+<p>由于该模板相对复杂，只建议在编辑现有图块集时使用。如果你出于某种原因确实想用它制作自定义图块集，可以<a href="https://maddie480.ovh/img/vanilla_template.png">点击此处 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>找到该模板。</p>
+<p>这是带注释的模板版本：</p>
+<p><img alt="带注释的原版模板" src="https://maddie480.ovh/img/annotated_vanilla_template.png" /></p>
+<h2 id="让图块集在游戏中显示">让图块集在游戏中显示<a class="headerlink" href="#让图块集在游戏中显示" title="Permanent link">&para;</a></h2>
+<p>Celeste 将每个图块集的信息存储在一个 xml 文件中，可以用常规文本编辑器打开/编辑。默认情况下，你的地图会从原版 xml 中获取图块集信息，但你可以在地图编辑器中将其配置为使用自定义 xml。</p>
+<h3 id="第-1-步-制作你自己的-xml">第 1 步 - 制作你自己的 xml<a class="headerlink" href="#第-1-步-制作你自己的-xml" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://maddie480.ovh/resources/foregroundtiles.xml">下载原版 ForegroundTiles.xml <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>（或者在你的 Celeste 文件夹 -&gt; Content -&gt; Graphics 中找到它）</li>
+<li>进入 <code>YourModFolder</code>，创建一个名为 <code>Graphics</code> 的文件夹</li>
+<li>在那里创建新的子文件夹（例如 yournickname -&gt; campaignname），以避免命名冲突</li>
+<li>将 <code>ForegroundTiles.xml</code> 文件粘贴到新文件夹中</li>
+</ul>
+<p>完成之后，你的 XML 应位于 <code>YourModFolder/Graphics/YourNickname/CampaignName/ForegroundTiles.xml</code>（将 <code>YourModFolder</code>、<code>YourNickname</code> 和 <code>CampaignName</code> 替换为你自己的值）。</p>
+<blockquote>
+<p>[!NOTE]
+注意，添加自定义文件时，通常建议将它们放在两个子文件夹中，分别使用你的昵称_以及_地图/关卡合集名称。<br />
+这样既能避免与他人制作的地图冲突，也能防止你自己的地图之间相互冲突。</p>
+</blockquote>
+<h3 id="第-2-步-启用-0x0ade-的自定义模板">第 2 步 - 启用 0x0ade 的自定义模板<a class="headerlink" href="#第-2-步-启用-0x0ade-的自定义模板" title="Permanent link">&para;</a></h3>
+<p>如果你使用 <a href="#使用-0x0ade-的改进版模板">0x0ade 的模板</a>，则需要向你的 xml 中添加一些内容。如果你使用原版模板，请跳过此步骤。</p>
+<p>打开你刚刚下载的 <code>ForegroundTiles.xml</code> 文件。紧接在文件开头的 <code>&lt;Data&gt;</code> 下方，将<a href="https://gist.github.com/0x0ade/3beb5eb3008f3f25be0b3204d1ee585a">这段文本 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>的全部内容复制粘贴进去。</p>
+<p>如果你愿意，可以将路径编辑为你的模组中第一个图块集的路径 <code>yournickname/campaignname/tilesetname</code>。</p>
+<h3 id="第-3-步-向-xml-中添加图块集">第 3 步 - 向 xml 中添加图块集<a class="headerlink" href="#第-3-步-向-xml-中添加图块集" title="Permanent link">&para;</a></h3>
+<p>在 <code>ForegroundTiles.xml</code> 文件末尾、<code>&lt;/Data&gt;</code> 行之前，复制粘贴以下内容：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;Tileset</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;w&quot;</span><span class="w"> </span><span class="na">copy=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;yournickname/campaignname/tilesetname&quot;</span><span class="w"> </span><span class="na">sound=</span><span class="s">&quot;8&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div>
+* 将 <code>w</code> 替换为任何尚未使用的单个字符。保留 ID 如下所列。
+  * 原版图块集使用 <code>3</code> 到 <code>9</code>、<code>a</code> 到 <code>o</code> 的 ID，以及 <code>1</code>、<code>z</code> 和 <code>G</code> 这些 ID。
+  * 0x0ade 的模板使用 <code>y</code>。
+  * 空气（Air）使用 <code>0</code>。
+  * 有关可用图块集 ID 的具体说明，请参阅下面的注释。
+* <code>copy</code> 值设置图块集使用哪个模板。<strong>使用 <code>y</code> 表示 0x0ade 的模板</strong>，或使用 <code>z</code> 表示原版模板。
+* 将 <code>yournickname/campaignname/tilesetName</code> 替换为你的昵称、你的地图或关卡合集名称，以及你想给图块集起的名字。记住这些名称，下一步会用到它们。
+* 将 <code>8</code> 替换为你想要的任何声音（列表见<a href="#图块集声音-id">下文</a>）。</p>
+<blockquote>
+<p>[!NOTE]
+你可以使用小写或大写字母、符号、带重音字符，或几乎所有你能想到的字符。<br />
+只要确保图块集 ID 尚未被使用即可，因为重复会导致 Celeste 崩溃。</p>
+<p>如果你想知道具体细节，该字符可以是<a href="https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane">基本多文种平面 <img alt="🔗" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f517.svg" title=":link:" /></a>中的任何有效 Unicode 字符。<br />
+这意味着 <code>U+0000</code> 到 <code>U+D7FF</code>、<code>U+E000</code> 到 <code>U+FFFF</code> 之间的字符都是可接受的。<br />
+<em>（再说最后一次，不，你不能把 emoji 用作图块集 ID，因为它们不在这个范围内。）</em></p>
+<p>请注意，某些字符在 XML 中具有特殊含义，如果不进行转义，可能会被 Lönn 错误解析。</p>
+</blockquote>
+<p>然后，保存并关闭文件。</p>
+<h3 id="第-4-步-将图块集图片添加到你的模组中">第 4 步 - 将图块集图片添加到你的模组中<a class="headerlink" href="#第-4-步-将图块集图片添加到你的模组中" title="Permanent link">&para;</a></h3>
+<ul>
+<li>回到 <code>YourModName/Graphics/Atlases/Gameplay</code></li>
+<li>创建一个 <code>tilesets</code> 文件夹，然后在其中创建 <code>yournickname</code> 和 <code>campaignname</code> 文件夹（名称应与你在上一步的 <code>ForegroundTiles.xml</code> 中使用的名称一致）</li>
+<li>将你的图块集复制到那里，并命名为你在 ForegroundTiles.xml 中填写的名称（本例中为 <code>tilesetName.png</code>）</li>
+</ul>
+<h3 id="第-5-步-将-xml-关联到你的地图">第 5 步 - 将 xml 关联到你的地图<a class="headerlink" href="#第-5-步-将-xml-关联到你的地图" title="Permanent link">&para;</a></h3>
+<ul>
+<li>打开 Lönn 并加载你的地图</li>
+<li>转到 Map -&gt; Metadata</li>
+<li>在 Foreground Tiles（前景图块）字段中，点击文件夹图标并选择你的 <code>ForegroundTiles.xml</code>。</li>
+<li>点击"Save changes"（保存更改）。保存并重新加载你的地图。</li>
+</ul>
+<p><em>感谢 Xaphan 和 Coffe 提供本教程！</em></p>
+<blockquote>
+<p>[!WARNING]
+在 Lönn 中输入文件路径时，务必使用正斜杠（<code>/</code>），而不是反斜杠（<code>\</code>）</p>
+</blockquote>
+<h2 id="添加自定义碎块">添加自定义碎块<a class="headerlink" href="#添加自定义碎块" title="Permanent link">&para;</a></h2>
+<p>可以通过包含可选的 <code>debris</code> 属性来为你的图块集添加自定义碎块贴图。<br />
+使用上面的示例，你的图块集定义应如下所示：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;Tileset</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;w&quot;</span><span class="w"> </span><span class="na">copy=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">sound=</span><span class="s">&quot;8&quot;</span><span class="w"> </span><span class="na">debris=</span><span class="s">&quot;Xaphan/debrisTexture&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div>
+其中碎块贴图位于 <code>Mods/yourmod/Graphics/Atlases/Gameplay/debris/Xaphan/debrisTexture.png</code>。</p>
+<p>同一个图块集可以添加多个碎块贴图，游戏会从中随机选择，只需按如下方式重命名图片即可：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>debrisTexture00.png
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>debrisTexture01.png
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>debrisTexture02.png
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>...
+</code></pre></div></p>
+<h2 id="添加动画图块">添加动画图块<a class="headerlink" href="#添加动画图块" title="Permanent link">&para;</a></h2>
+<p>请参阅<a href="../Tileset-Format-Reference/#animatedtiles">图块集格式参考</a>页面中的"动画图块"一节。</p>
+<h2 id="让你的图块集忽略其他图块">让你的图块集忽略其他图块<a class="headerlink" href="#让你的图块集忽略其他图块" title="Permanent link">&para;</a></h2>
+<p>请注意下面图块集中的 <code>ignores</code> 标签：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;Tileset</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">copy=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dirt&quot;</span><span class="w"> </span><span class="na">ignores=</span><span class="s">&quot;g&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div>
+如果你将这个标签添加到图块集，它将不会与给定图块集 ID 的图块集连接。</p>
+<p>你可以像这样列出多个 ID：<code>ignores="a,b,c"</code></p>
+<p>如果你想忽略所有可能的图块，可以添加：<code>ignores="*"</code></p>
+<p>如果你想排除某些 ID 不被忽略，可以在末尾添加：<code>ignoreExceptions="a"</code></p>
+<h2 id="为你的图块集设置显示名称">为你的图块集设置显示名称<a class="headerlink" href="#为你的图块集设置显示名称" title="Permanent link">&para;</a></h2>
+<p>为你的图块集添加 <code>displayName="Tileset name"</code> 标签，即可在 Lönn 中为其设置自定义名称。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&lt;Tileset</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">copy=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dirt&quot;</span><span class="w"> </span><span class="na">displayName=</span><span class="s">&quot;Muddy Dirt&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></p>
+<h2 id="常见问题与常见错误">常见问题与常见错误<a class="headerlink" href="#常见问题与常见错误" title="Permanent link">&para;</a></h2>
+<h4 id="我的图块集没有出现在-lönn-中">我的图块集没有出现在 Lönn 中！<a class="headerlink" href="#我的图块集没有出现在-lönn-中" title="Permanent link">&para;</a></h4>
+<p>仔细检查你在 Lönn 中填写的 ForegroundTiles.xml 路径是否正确。</p>
+<h4 id="我的图块集出现了-但只是一个粉色贴图">我的图块集出现了，但只是一个粉色贴图！<a class="headerlink" href="#我的图块集出现了-但只是一个粉色贴图" title="Permanent link">&para;</a></h4>
+<p>你的 XML 已正确加载，但图块集出了问题。很可能是你在 XML 中填写的图片文件路径有误。也可能是你的图块集与模板不匹配，比如尺寸不对等等。
+你的文件结构应如下所示：
+<img alt="图片" src="https://user-images.githubusercontent.com/43452521/176455132-16daaa10-2f68-4db2-834c-80ec83e039a3.png" /></p>
+<p>那么 XML 文件中图块集的对应路径就是：<code>"Rain/Monochrome/Whitespace"</code>。</p>
+<p>将 <code>Rain</code> 替换为你的昵称，将 <code>Monochrome</code> 替换为你的关卡合集名称，将 <code>Whitespace</code> 替换为 png 文件的名称（去掉 <code>.png</code> 扩展名）。</p>
+<h4 id="当我将-xml-路径输入-lönn-时-出现了错误">当我将 xml 路径输入 Lönn 时，出现了错误！<a class="headerlink" href="#当我将-xml-路径输入-lönn-时-出现了错误" title="Permanent link">&para;</a></h4>
+<p>很可能是你不小心弄乱了 XML 的格式。检查一下你是否删除了像 <code>&lt;Data&gt;</code> 这样的重要行。如果你找不到错误，可以尝试重新开始，用一个全新的 xml。</p>
+<h4 id="如何添加背景图块">如何添加背景图块？<a class="headerlink" href="#如何添加背景图块" title="Permanent link">&para;</a></h4>
+<p>添加方法与前景图块相同，只不过要使用 BackgroundTiles.xml 而不是 ForegroundTiles.xml，并且不需要为它们指定声音参数。另外，一个好习惯是以 bgTilesetName.png 的格式命名它们。</p>
+<h2 id="图块集声音-id">图块集声音 ID<a class="headerlink" href="#图块集声音-id" title="Permanent link">&para;</a></h2>
+<p>以下 ID 取自 Celeste FMOD Studio 项目。<br />
+它们可以在 <code>event:/char/madeline/footstep</code> 中找到——感谢 PowerUp Audio 的 Kevin Regamey！</p>
+<p>标记为（未使用）的条目没有任何关联声音。</p>
+<details>
+<summary>点击展开图块集声音 ID</summary>
+
+0. null
+1. **asphalt**
+2. **car**
+3. **dirt**（用于图块集：dirt、core）
+4. **snow**（用于图块集：snow、summit）
+5. **wood**
+6. **bridge**
+7. **girder**（用于图块集：girder）
+8. **brick**（用于图块集：tower、stone、cement、rock、woodStoneEdges、poolEdges、templeA、templeB、cliffsideAlt、reflection、summitNoSnow）
+9. **traffic block**
+10. （未使用）
+11. **dreamblock inactive**
+12. **dreamblock active**
+13. **resort wood**（用于图块集：wood）
+14. **resort roof**
+15. **resort platforms**
+16. **resort basement**
+17. **resort laundry**
+18. **resort boxes**
+19. **resort books**
+20. **resort forcefield**
+21. **resort clutterswitch**
+22. **resort elevator**
+23. **cliffside snow**（用于图块集：cliffside）
+24. （未使用）
+25. **cliffside grass**（用于图块集：deadgrass）
+26. （未使用）
+27. **cliffside whiteblock**
+28. **gondola**
+29. （未使用）
+30. （未使用）
+31. （未使用）
+32. **glass**
+33. **grass**（用于图块集：grass）
+34. （未使用）
+35. **cassette block**
+36. **core ice**
+37. **core rock**
+38. （未使用）
+39. （未使用）
+40. **glitch**（用于图块集：scifi）
+41. （未使用）
+42. **internet café**
+43. **cloud**
+44. **moon**（用于图块集：lostlevels）
+</details>
+
+<details>
+<summary>点击展开图块集声音 ID 表格</summary>
+
+<html>
+<body>
+<!--StartFragment--><google-sheets-html-origin><!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}-->
+
+图块集 ID | 图块集名称 | 声音 ID | 声音名称
+-- | -- | -- | --
+1 | dirt | 3 | dirt
+3 | snow | 4 | soft snow
+4 | girder | 7 | metal girder
+5 | tower | 8 | brick
+6 | stone | 8 | brick
+7 | cement | 8 | brick
+8 | rock | 8 | brick
+9 | wood | 13 | resort wood
+a | wood stone edges | 8 | brick
+b | cliffside | 23 | cliffside snow
+c | pool edges | 8 | brick
+d | temple A | 8 | brick
+e | temple B | 8 | brick
+f | cliffside Alt | 8 | brick
+g | reflection | 8 | brick
+h | grass | 33 | reflection grass
+i | summit | 4 | soft snow
+j | summit No Snow | 8 | brick
+k | core | 3 | dirt
+l | deadgrass | 25 | dry grass
+m | lostlevels | 44 | moon
+n | scifi | 40 | glitch
+o | {从未使用} | 43 | cloud
+
+<!--EndFragment-->
+</body>
+</html>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Ahorn-Installation-Help/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Ahorn 安装帮助">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Ahorn 安装帮助
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Tileset-Format-Reference/" class="md-footer__link md-footer__link--next" aria-label="下一页: 图块集格式参考">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                图块集格式参考
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
