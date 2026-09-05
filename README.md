@@ -42,3 +42,23 @@ npm run preview  # 预览构建产物
 5. 新增页面记得同步更新 `.vitepress/config.mjs` 的 `themeConfig.sidebar`。
 
 > 注意：第 2、3 步会就地修改 `docs/` 副本；MkDocs 源中的同名文件不受影响。
+
+## 部署到 GitHub Pages
+
+本项目已配置 **GitHub Actions 自动部署**（`.github/workflows/deploy.yml`），
+面向**独立 Pages 仓库**（`<用户名>.github.io`，部署在根路径，`base: '/'`）。
+若改用项目仓库（子路径），把 `config.mjs` 的 `base` 改为 `/<仓库名>/`。
+
+首次部署步骤：
+
+1. 在 GitHub 新建仓库，名称必须是 `<你的用户名>.github.io`（Public，不要勾选 README）。
+2. 本地关联并推送：
+   ```bat
+   git remote add origin https://github.com/<你的用户名>/<你的用户名>.github.io.git
+   git branch -M main
+   git push -u origin main
+   ```
+3. 打开仓库 → Settings → Pages → **Build and deployment / Source 选 “GitHub Actions”**。
+4. Actions 运行完成后，站点即发布于 `https://<你的用户名>.github.io/`。
+
+之后每次 `git push` 到 `main` 都会自动重新构建并发布。
