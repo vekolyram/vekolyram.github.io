@@ -1,0 +1,5 @@
+/* 代码字体：JetBrains Mono（仅代码块/行内代码，中文回退系统字体） */
+:root {
+  --vp-font-family-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono',
+    'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+}
