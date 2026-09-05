@@ -1,0 +1,16 @@
+{
+  "name": "everest-vitepress",
+  "version": "1.0.0",
+  "description": "蔚蓝 Everest 官方 Wiki 中文文档库（VitePress 版）",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
