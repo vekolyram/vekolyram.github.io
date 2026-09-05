@@ -10,6 +10,14 @@ export default defineConfig({
   base: '/',
 
   markdown: {
+    // 与 MkDocs 版一致的中文 slugify：保留中文/变音符（如 Lönn），连续非字符合并为一个 -
+    anchor: {
+      slugify: (str) =>
+        str
+          .toLowerCase()
+          .replace(/[^\p{L}\p{N}_]+/gu, '-')
+          .replace(/^-+|-+$/g, ''),
+    },
     container: {
       tipLabel: '提示',
       warningLabel: '警告',
@@ -25,6 +33,7 @@ export default defineConfig({
       { text: '教程', link: '/Tutorials/First-Custom-Map' },
       { text: '自定义地图', link: '/Guides/Custom-Maps' },
       { text: '代码模组', link: '/Coding/Making-Code-Mods' },
+      { text: '常见问题', link: '/General/FAQ' },
       { text: '原始 Wiki', link: 'https://github.com/EverestAPI/Resources/wiki' },
     ],
 
@@ -35,6 +44,7 @@ export default defineConfig({
         collapsible: true,
         items: [
           { text: '第一张自定义地图', link: '/Tutorials/First-Custom-Map' },
+          { text: '替换贴图', link: '/Tutorials/Replacing-A-Texture' },
         ],
       },
       {
@@ -42,6 +52,7 @@ export default defineConfig({
         collapsible: true,
         items: [
           { text: '自定义地图', link: '/Guides/Custom-Maps' },
+          { text: '模组搭建', link: '/Guides/Mod-Setup' },
         ],
       },
       {
@@ -69,6 +80,7 @@ export default defineConfig({
           { text: '实体换肤', link: '/Mapping/Reskinning-Entities' },
           { text: '贴花注册表', link: '/Mapping/Decal-Registry' },
           { text: '自定义肖像', link: '/Mapping/Custom-Portraits' },
+          { text: '贴图包', link: '/Guides/Texture-Packs' },
         ],
       },
       {
@@ -95,6 +107,15 @@ export default defineConfig({
           { text: '自定义实体、触发器与风格地面', link: '/Coding/Custom-Entities,-Triggers-and-Stylegrounds' },
           { text: '创建自定义事件', link: '/Coding/Creating-Custom-Events' },
           { text: '添加精灵图', link: '/Coding/Adding-Sprites' },
+        ],
+      },
+      {
+        text: '通用',
+        collapsible: true,
+        items: [
+          { text: '常见问题', link: '/General/FAQ' },
+          { text: '调试模式', link: '/General/Debug-Mode' },
+          { text: '上传模组', link: '/Uploading-Mods' },
         ],
       },
     ],
