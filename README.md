@@ -62,3 +62,27 @@ npm run preview  # 预览构建产物
 4. Actions 运行完成后，站点即发布于 `https://<你的用户名>.github.io/`。
 
 之后每次 `git push` 到 `main` 都会自动重新构建并发布。
+
+## 专栏「编译原理精读」
+
+`docs/Compilers/` 是《编译原理》（原书第 2 版）的个人读书笔记专栏，**按原书目录结构组织**，
+只记录笔记、不复制原书正文（原书版权归 Pearson Education 与机械工业出版社）。
+
+```
+docs/Compilers/
+├── index.md              # 专栏总览（章节表由脚本生成）
+└── ch01.md … ch12.md     # 每章一页，页内按原书小节顺序留笔记位
+```
+
+生成/刷新骨架：
+
+```bash
+node tools/gen-compilers.mjs
+```
+
+- 已存在的章节页**不会被覆盖**，可以放心反复运行；
+- 目录数据在 `tools/compilers-toc.mjs`，小节标题若与原书有出入改这里；
+- 该脚本只刷新 `index.md` 中 `BEGIN:CHAPTERS` / `END:CHAPTERS` 之间的表格。
+
+> 注：小节标题是从扫描件目录页 OCR 整理 + 按原书第 2 版标准结构补全的，
+> 建议对照纸质书核对一遍。
